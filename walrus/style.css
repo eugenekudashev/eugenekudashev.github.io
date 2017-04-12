@@ -1,0 +1,94 @@
+
+/* called by your view template */
+
+/* You might want to try something fancier: */
+/* less: http://lesscss.org/ */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Work Sans';
+  
+  /* cursor:pointer; */
+}
+
+html, body {
+  height: 100%;
+}
+
+body { 
+  font-size: 100%; 
+  
+  background-image:url('https://www.wildrepublic.com/Content/uploads/walrus-1a-xl.jpg');
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position:center;
+  
+}
+
+/* body::after{
+    position:absolute; width:0; height:0; overflow:hidden; z-index:-1;
+    content:url(http://walrus.gomix.me/assets/1.jpg) url(http://walrus.gomix.me/assets/2.jpg) url(http://walrus.gomix.me/assets/3.jpg) url(http://walrus.gomix.me/assets/4.jpg) url(http://walrus.gomix.me/assets/5.jpg) url(http://walrus.gomix.me/assets/6.jpg) url(http://walrus.gomix.me/assets/7.jpg) url(http://walrus.gomix.me/assets/8.jpg) url(http://walrus.gomix.me/assets/9.jpg) url(http://walrus.gomix.me/assets/10.jpg) url(http://walrus.gomix.me/assets/11.jpg) url(http://walrus.gomix.me/assets/12.jpg) url(http://walrus.gomix.me/assets/13.jpg) url(http://walrus.gomix.me/assets/14.jpg) url(http://walrus.gomix.me/assets/15.jpg) url(http://walrus.gomix.me/assets/16.jpg) url(http://walrus.gomix.me/assets/17.jpg);
+} */
+
+
+html {
+  cursor:url('https://cdn.gomix.com/c9bbbff7-3854-4534-a80a-713779d25616%2Fwalrus.png'), auto;
+}
+
+#wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+h1 {
+  position: absolute;
+  top: 1%;
+  left: 1%;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: white;
+  text-shadow: 0 0 3px #000000;
+  width: 80%;
+  
+  font-size: 2.5em;
+  
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.5em;
+  }
+}
+
+@media (max-width: 736px) {
+  body {
+    cursor:pointer;
+  }
+}
+
+#social {
+  position: absolute;
+  left: 2%;
+  bottom: 3%;
+  z-index: 100;
+  line-height: 10px;
+}
+
+#credits {
+  position: absolute;
+  right: 2%;
+  bottom: 3%;
+}
+
+#credits a,p {
+  font-size: 0.8em;
+  color: #000;
+}
+
+@media (max-width: 320px) {
+  #credits a,p {
+    font-size: 0.5em;
+  }
+}
