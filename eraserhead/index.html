@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Page title</title>
+	<title>Eraserhead – Chrome Experiments</title>
 	<meta charset="UTF-8">
-  <meta name="description" content="This is an example of a meta description. This will often show up in search results.">
+  <meta name="description" content="Chrome Experiments is a showcase of work by coders who are pushing the boundaries of web technology, creating beautiful, unique web experiences.">
 </head>
 <style type="text/css">
 
@@ -11,14 +11,11 @@
 
 html, body { width:100%; height:100%; } /* just to be sure these are full screen*/
 
-canvas { display:block;} /* To remove the scrollbars */
+body {
+  background:white;
+}
 
-	h1 {
-		position:absolute;
-		font-size: 160px;
-		color: red;
-		font-family: Helvetica;
-	}
+canvas { display:block;} /* To remove the scrollbars */
 
 	#iframe {
   position: absolute;
@@ -44,8 +41,16 @@ canvas { display:block;} /* To remove the scrollbars */
 	color: white;
 	z-index: 500;
 	position: absolute;
-	top: 50px; 
-	left: 50px;
+	top: 20px; 
+	left: 20px;
+
+  font-size: 1em;
+}
+
+@media (max-width: 1000px) {
+  span.onboarding {
+    font-size: 3em;
+  }
 }
 </style>
 
