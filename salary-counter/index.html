@@ -17,14 +17,14 @@
 }
 
 			function updateEarnings() {
-				var new_value = parseFloat( $("#earning-now").text() ) + salary_per_second;
+				var new_value = parseFloat( $("#earning-now").text() ) + salary_per_second / 20;
 				console.log(new_value)
 
-				$("#earning-now").text( round( new_value, 3 ) );
+				$("#earning-now").text( round( new_value, 4 ) );
 				
 			}
 
-			var tid = setInterval(updateEarnings,30);
+			var tid = setInterval(updateEarnings,50);
 			$("#current-earnings").show()
 			
 			})
