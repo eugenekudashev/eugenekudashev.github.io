@@ -54,6 +54,8 @@
 				var tid = setInterval(updateEarnings,50);
 				//reveal the div 
 				$("#current-earnings").show()
+				// $("#intro").css('opacity', '0.15');
+				$("#intro").animate({opacity: 0.1}, 200);
 			}
 
 			//deal with empty field, negative numbers, etc.
@@ -109,12 +111,13 @@
  --><!-- <h1 style="color:red;">WARNING: if you DON'T have a FULL-TIME job, please LEAVE THIS WEBSITE IMMEDIATELY. This website is ONLY for people who work FULL-TIME.</h1> -->
 <div id="wrapper">
 	<div id="content">
-		<h1 style="text-decoration: underline;">what's your salary?</h1>
-		<h1></h1>
-		$<input id="salary" style="border: 0; border-bottom: 1px solid black; outline: 0;" size="5" type="text" name="" placeholder="5000"> per month
-		<br><br>
-		<button id="do-the-math" style="background: blue; color: white; border: 0; padding: 5px 15px">yes it's a button</button>
-		<br><br>
+		<div id="intro">
+			<h1 style="text-decoration: underline;">what's your salary?</h1>
+			$<input id="salary" style="border: 0; border-bottom: 1px solid black; outline: 0;" size="5" type="text" name="" placeholder="5000"> per month
+			<br><br>
+			<button id="do-the-math" style="background: blue; color: white; border: 0; padding: 5px 15px">yes it's a button</button>
+		</div>
+
 		<div id="current-earnings">
 			<p class="earning-now">you've made <span id="earning-now">0</span></p>
 			<!-- <p>Feels better?</p> -->
