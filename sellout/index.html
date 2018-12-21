@@ -4,81 +4,123 @@
 	<title>Real-time salary visualization - Sellout</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script type="text/javascript">
-		$(document).ready( function() {
-			$("#current-earnings").hide()
+	$(document).ready( function() {
+		//hide counter on load
+		$("#current-earnings").hide()
+		
+		//focus on load
+		var input = document.getElementById("salary").focus();
 
-			$("#do-the-math").click( function() {
+		//make Enter work too
+		$("#salary").keyup(function(event) {
+		    if (event.keyCode === 13) {
+		        $("#do-the-math").click();
+		    }
+		});
+
+		//the actual counting
+		$("#do-the-math").click( function() {
 			var salary = $("#salary").val();
-			var salary_per_second = salary / 22 / 8 / 3600;
 
-			function round(value, precision) {
-    var multiplier = Math.pow(10, precision || 0);
-    return Math.round(value * multiplier) / multiplier;
-}
+			//process only positive numbers
+			if (salary>0) {
+				var salary_per_second = salary / 22 / 8 / 3600;
 
-			function updateEarnings() {
-				var new_value = parseFloat( $("#earning-now").text() ) + salary_per_second / 20;
-				console.log(new_value)
+				//helper for rounding float numbers
+				function round(value, precision) {
+				    var multiplier = Math.pow(10, precision || 0);
+				    return Math.round(value * multiplier) / multiplier;
+				}
 
-				$("#earning-now").text( round( new_value, 4 ) );
-				
+				//real-time updater
+				function updateEarnings() {
+					var increment = salary_per_second / 20
+					if (increment < 0.00005) { increment = 0.000051 }
+					var new_value = parseFloat( $("#earning-now").text() ) + increment;
+
+					var res = round( new_value, 4 )
+					$("#earning-now").text( res )
+					
+				}
+
+				//run 20 times per second
+				var tid = setInterval(updateEarnings,50);
+				//reveal the div 
+				$("#current-earnings").show()
 			}
 
-			var tid = setInterval(updateEarnings,50);
-			$("#current-earnings").show()
-			
-			})
+			//deal with empty field, negative numbers, etc.
+			else {
+				alert("i'm sorry dave i'm afraid i can't do that")
+			}
+		
 		})
+	})
 	</script>
 
 	<style type="text/css">
 		* {
 			font-family: monospace;
 			font-weight: normal;
+			font-size: 2rem;
 		}
-		.earning-now {
-			font-size: 200%;
+		#wrapper {
+			width: 100%;
+  			text-align: center;
+
+		}
+		#content {
+			display: inline-block;
+
 		}
 		#earning-now::before {
 			content:"$";
 		}
-
-		#salary, #do-the-math {
-			font-size: 200%;
-		}
-		#salary::before {
-			/*content:"$";*/
-		}
-
 		#footer {
 			position: absolute;
 			bottom: 10px;
 			left: 10px;
-			width: 100%;
+			width: 90%;
 		}
+		#footer span {
+			font-size: 0.5rem !important;
+		}
+
 		#credits {
 			position: absolute;
 			left: 50%;
 		}
+
+		#current-earnings {
+			text-align: left;
+		}
 	</style>
 </head>
 <body>
-<h1>Don't like your full-time job?</h1>
+<!-- <h1>Don't like your full-time job?</h1>
 <h1>Bored?</h1>
 <h1>Stuck in a stupid meeting?</h1>
 <h1>This will cheer you up!</h1>
-<h1>➡️ Enter your monthly 💰 salary:</h1>
-$<input id="salary" type="text" name="" placeholder="5000">
-<br><br>
-<button id="do-the-math">Oh my, what's going to happen?</button>
-<br><br>
-<div id="current-earnings">
-	<p class="earning-now">You've made <span id="earning-now">0</span></p>
-	<p>Feels better?</p>
+<h1>➡️ Enter your monthly 💰 salary:</h1> -->
+<!-- <h1 style="font-weight: bold; text-decoration: underline;">How much money  am I making  right now?</h1>
+ --><!-- <h1 style="color:red;">WARNING: if you DON'T have a FULL-TIME job, please LEAVE THIS WEBSITE IMMEDIATELY. This website is ONLY for people who work FULL-TIME.</h1> -->
+<div id="wrapper">
+	<div id="content">
+		<h1 style="text-decoration: underline;">what's your salary?</h1>
+		<h1></h1>
+		$<input id="salary" style="border: 0; border-bottom: 1px solid black; outline: 0;" size="5" type="text" name="" placeholder="5000"> per month
+		<br><br>
+		<button id="do-the-math" style="background: blue; color: white; border: 0; padding: 5px 15px">yes it's a button</button>
+		<br><br>
+		<div id="current-earnings">
+			<p class="earning-now">you've made <span id="earning-now">0</span></p>
+			<!-- <p>Feels better?</p> -->
+		</div>
+	</div>
 </div>
-<div id="footer">
-	<span>Like, share, die</span>
-	<span id="credits">Made by @eugenekudashev</span>
-</div>
+<!-- <div id="footer">
+	<span>Like, share, etc.</span>
+	<span id="credits">Made by Eugene Kudashev</span>
+</div> -->
 </body>
 </html>
