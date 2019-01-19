@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready( function() {
+
+		function convert_text_into_html( text ) {
+
+			var result = text
+
+			var result = result.replace(/\n/g,'<br/>')
+
+			var result = result + '<br/>' + '<br/>' + "- rupi kaur"
+
+			return result
+		}
+
+		
+
+		// the poems are stored as 2-dim. array: [ text, author ]
+
+		var poems = [ 
+
+			[`losing you\nwas the becoming\nof myself`, "computer"],
+
+			[`other women's bodies\nare not our battlegrounds`, "computer"],
+
+			[`you were so afraid\nof my voice\ni decided to be\nafraid of it too`,"rupi"]
+		]
+
+		// here the local cycle begins. it will need to be repeated.
+
+		
+		
+		var score = 0
+		// global score
+
+		var counter = 0
+		// for iterations
+
+		var author=""
+
+		update_poem()
+
+		function update_poem() {
+			// read poem and its author from the data source
+			var poem_text = poems[counter][0]
+			author = poems[counter][1]
+		
+			//convert it into html
+			convert_text_into_html( poem_text )
+
+			//show it
+			$("#poem > p").html( convert_text_into_html( poem_text ) )
+		}
+
+		function update_score() {
+			$("#score").text(score)
+		}
+
+		// when either of the buttons is clicked
+		$("button").click( function() {
+			
+			var answer = $(this).attr('id')
+			
+			if ( author == answer) {
+				alert("correct")
+				score+=10
+			}
+			else {
+				alert("wrong")
+				score-=5
+			}
+
+			//show next poem
+			update_score()
+			counter++
+			update_poem()
+			
+
+		})
+	})
+</script>
+
+	<style type="text/css">
+		.outer {
+  display: table;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  /*text-align: center;*/
+}
+
+.middle {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.inner {
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+  /*display: inline-block;*/
+  /*whatever width you want*/
+}
+
+		/*#wrapper {
+			width: 100%;
+  			text-align: center;
+
+		}
+		#content {
+			display: inline-block;
+
+		}*/
+		#poem {
+			text-align: left;
+			font-family: Times New Roman, Times, serif;
+			font-size: 1rem;
+		}
+
+		@media (max-width: 600px) {
+		  #poem {
+		    font-size: 33px;
+		  }
+		}
+
+		#score {
+			position: absolute;
+			bottom: 10px;
+			right: 10px;
+			font-size: 2rem;
+			font-family: Helvetica, sans-serif;
+		}
+
+		button {
+			font-size: 1rem;
+		}
+	</style>
+</head>
+<body>
+
+<div class="outer">
+  <div class="middle">
+    <div class="inner">
+      
+      <div id="poem">
+			<p>
+			<!-- losing you<br/>
+			was the becoming<br/>
+			of myself<br/>
+			<br/>
+			- rupi kaur -->
+			</p>
+		</div>
+
+		<button id="rupi">rupi</button>
+		<button id="computer">computer</button>
+		
+    </div>
+  </div>
+</div>
+
+<div id="score">0</div>
+
+<!-- <div id="wrapper">
+	<div id="content">
+		<div id="poem">
+			<p>
+			losing you<br/>
+			was the becoming<br/>
+			of myself<br/>
+			<br/>
+			- rupi kaur
+			</p>
+			<button>rupi</button>
+			<button>computer</button>
+		</div>
+	</div>
+</div> -->
+
+
+</body>
+</html>
