@@ -27,12 +27,14 @@
 
 			[`other women's bodies\nare not our battlegrounds`, "computer"],
 
-			[`you were so afraid\nof my voice\ni decided to be\nafraid of it too`,"rupi"]
+			[`you were so afraid\nof my voice\ni decided to be\nafraid of it too`,"rupi"],
+
+			[`there is beauty rooted\nso deep within you\nyou can't help but\nsee it everywhere`, "computer"]
 		]
 
 		// here the local cycle begins. it will need to be repeated.
 
-		
+		var length = poems.length
 		
 		var score = 0
 		// global score
@@ -77,7 +79,12 @@
 			//show next poem
 			update_score()
 			counter++
-			update_poem()
+
+			if ( counter < length ) update_poem()
+			else { 
+				$("#poem").html("GAME OVER<br/><br/>YOUR SCORE: " + score) 
+				$("button").hide()
+			}
 			
 
 		})
