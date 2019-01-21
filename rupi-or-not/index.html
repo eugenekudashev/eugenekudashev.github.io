@@ -40,7 +40,16 @@
 
 			[`there is beauty rooted\nso deep within you\nyou can't help but\nsee it everywhere`, "computer"],
 
-			[`i've had sex she said\nbut i don't know\nwhat making love\nfeels like`, "rupi"]
+			[`i've had sex she said\nbut i don't know\nwhat making love\nfeels like`, "rupi"],
+
+			[`on days\nlike this\ni need someone\nwho knows struggle\nas well as i do\ni tell him i work \ni am learning\nhow to remain kind\nin cruel situations`, "computer"],
+
+			[`she was a rose\nin the hands of those\nwho had no intention\nof keeping her`, "rupi"],
+
+			[`he placed his hands\non my mind\nyour lips were just convenient`, "computer"],
+
+			[`the idea that we are\nso capable of love\nbut still choose\nto be toxic`, "rupi"]
+
 		])
 
 
@@ -110,7 +119,7 @@
 				$("#message").text(" ")
 				if ( counter < length ) update_poem()
 				else { 
-					$("#poem").html("GAME OVER<br/><br/>YOUR SCORE: " + score + "<br/><br/>MAX SCORE: " + length*10) 
+					$("#poem").html("game over<br/>your score is " + score + "<br/>whereas max score <br>is " + length*10 + "<br/><br/>- rupi kaur") 
 					$("button").hide()
 					$("#logo, #about, #credits").fadeTo("slow",1)
 				}
