@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>rupi or robot</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1.0">
 	<!-- makes mobile queries work -->
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+	<!-- Odometr includes -->
+<link rel="stylesheet" href="http://github.hubspot.com/odometer/themes/odometer-theme-default.css" />
+<script src="http://github.hubspot.com/odometer/odometer.js"></script>
+
 <script type="text/javascript">
 	$(document).ready( function() {
+
+		window.odometerOptions = {
+			duration: 100
+		}
 
 		function convert_text_into_html( text ) {
 
@@ -288,7 +296,7 @@
 </head>
 <body>
 <div id="logo">rupi or not</div>
-<div id="score">0</div>
+<div class="odometer" id="score">0</div>
 
 <div class="outer">
   <div class="middle">
