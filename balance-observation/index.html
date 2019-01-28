@@ -30,12 +30,14 @@ $(document).ready( function() {
 	}
 
 	function show_score_and_restart() {
-		 $("#line").show()
 		 $("#black").stop();
 	     clearInterval(refreshIntervalId);
 	     setTimeout( restart, 2000 )
 	     var score = Math.round ( $("#black").width() / $(window).width() * 100 )
-	     if(score!=50) $("#black").html("off by " + Math.abs(50-score))
+	     if(score!=50) {
+	     	$("#black").html("off by " + Math.abs(50-score))
+	     	$("#line").show()
+	     }
 	     else if (score==50) $("#black").text("✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨")
 	}
 
