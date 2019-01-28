@@ -10,6 +10,8 @@
 <script type="text/javascript">
 $(document).ready( function() {
 
+	$("#line").hide()
+
 	var refreshIntervalId;
 	restart();
 
@@ -22,17 +24,19 @@ $(document).ready( function() {
 	}
 
 	function restart() {
+		$("#line").hide()
 		$("#black").text("")
 		refreshIntervalId = setInterval( animate, 500 );
 	}
 
 	function show_score_and_restart() {
+		 $("#line").show()
 		 $("#black").stop();
 	     clearInterval(refreshIntervalId);
 	     setTimeout( restart, 2000 )
 	     var score = Math.round ( $("#black").width() / $(window).width() * 100 )
-	     if(score!=50) $("#black").html(score + "<br>" + "you're off by " + Math.abs(50-score))
-	     else if (score==50) $("#black").text("50! ✨✨✨✨")
+	     if(score!=50) $("#black").html("off by " + Math.abs(50-score))
+	     else if (score==50) $("#black").text("✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨")
 	}
 
 	$(document).keydown(function( event ) {
@@ -71,9 +75,9 @@ $(document).ready( function() {
 		padding: 0;
 	}
 	#black {
+		display: inline-block;
 		background-color: black;
 		width: 50%;
-
 		color: white;
 		font-size: 4rem;
 		font-family: Helvetica, sans-serif;
@@ -82,11 +86,20 @@ $(document).ready( function() {
 		background: white;
 		width: 50%;
 	}
+	#line {
+		position:absolute;
+		left: 50%;
+		width:1px;
+		background-color:red;
+		height:100%;
+		z-index: 100;
+	}
 </style>
 
 </head>
 <body>
 <!-- <div id="wrapper"> -->
+	<div id="line"></div>
 	<div id="black"></div>
 	<div id="white"></div>
 <!-- </div> -->
