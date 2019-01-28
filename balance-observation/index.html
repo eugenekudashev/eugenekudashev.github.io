@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready( function() {
+
+	var refreshIntervalId = setInterval( animate, 500 );
+
+	function animate() {
+		var random_width = 40 + Math.floor ( Math.random() * 20 )
+		var new_width = random_width + "%"
+		$("#black").animate({
+			width: new_width
+		}, 500 );
+	}
+
+	$(document).keydown(function( event ) {
+		  if ( event.which == 37 ) {
+		     event.preventDefault();
+		     clearInterval(refreshIntervalId);
+		     var score = Math.round ( $("#black").width() / $(window).width() * 100 )
+		     $("#black").text(score)
+
+		  }
+		  if ( event.which == 39 ) {
+		     event.preventDefault();
+		  }
+		})
+
+})
+</script>
+
+<style type="text/css">
+	html, body {
+	  height: 100%;
+	  margin: 0;
+	  padding: 0;
+	}
+	#black, #white {
+		height: 100%;
+		width: 50%;
+	}
+	#black {
+		background-color: black;
+
+		color: white;
+		font-size: 4rem;
+		font-family: Helvetica, sans-serif;
+	}
+	#white {
+		background: white;
+	}
+</style>
+
+</head>
+<body>
+<!-- <div id="wrapper"> -->
+	<div id="black"></div>
+	<div id="white"></div>
+<!-- </div> -->
+
+</body>
+</html>
