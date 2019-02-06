@@ -23,7 +23,7 @@ $(document).ready( function() {
 
   // what happens on hover
   $(".card").mouseenter( function() {
-    $(this).flip('toggle');
+    if(Math.random() < 0.95) $(this).flip('toggle');
 
     $(".card").each( function() {
 	  	console.log ( $(this).data("flip-model") )
