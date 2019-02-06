@@ -13,6 +13,11 @@
 
 $(document).ready( function() {
   $(".card").flip();
+
+  $(".card").each( function() {
+  	if(Math.random() > 0.5) $(this).flip(true)
+  })
+
   $(".card").mouseenter( function() {
     $(this).flip('toggle');
   })
