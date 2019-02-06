@@ -8,22 +8,35 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
+
 
 <script type="text/javascript">
 
 $(document).ready( function() {
-  $(".card").flip();
+  
+  // setup: random 200–800ms animation duration for each card
+  $(".card").each( function() {
+  	var timing = 250 + Math.floor ( Math.random() * 600 )
+  	$(this).flip({speed: timing, trigger: 'manual'})
+  })
 
+  // what happens on hover
   $(".card").mouseenter( function() {
     $(this).flip('toggle');
+
+    $(".card").each( function() {
+	  	console.log ( $(this).data("flip-model") )
+  	})
   })
 })
 
+// 0.5 second delay before flipping the cards on load
 $(window).on('load', function() {
   setTimeout( animate, 500) 
-  // 0.5 second delay before flipping the cards on load
 });
 
+// flip a card with a 50% chance
 function animate() {
 	$(".card").each( function() {
   	if(Math.random() > 0.5) $(this).flip('toggle')
@@ -49,21 +62,22 @@ function animate() {
   height: 200px;
   margin: 5px;
   float: left;
-  font-family: Helvetica;
-  font-size: 10px;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 19px;
 }
 
 .front {
-  background: #809fed;
+  background: #ecb0f1;
   color: black;
   padding: 5px;
 }
 
 .back {
-  background: #edc880;
+  background: #f3f291;
   color: black;
   padding: 5px;
 }
+
 </style>
 
 </head>
