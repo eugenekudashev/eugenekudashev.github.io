@@ -15,6 +15,19 @@
 
 $(document).ready( function() {
   
+$(".card").hide()
+//start empty
+
+$("#enter").click( function() {
+	$("#enter, #exit").hide()
+	$(".card").show()
+	setTimeout( animate, 500) 
+})
+
+$("#exit").click( function() {
+	window.location.replace("https://facebook.com");
+})
+
   // setup: random 200–800ms animation duration for each card
   $(".card").each( function() {
   	var timing = 250 + Math.floor ( Math.random() * 600 )
@@ -33,7 +46,7 @@ $(document).ready( function() {
 
 // 0.5 second delay before flipping the cards on load
 $(window).on('load', function() {
-  setTimeout( animate, 500) 
+  // setTimeout( animate, 500) 
 });
 
 // flip a card with a 50% chance
@@ -46,6 +59,10 @@ function animate() {
 </script>
 
 <style type="text/css">
+
+body {
+	font-family: 'Work Sans', sans-serif;
+}
 
 #wrapper {
 	text-align: center;
@@ -78,6 +95,35 @@ function animate() {
   padding: 5px;
 }
 
+#enter, #exit {
+	width: 50%;
+	display: block;
+	float: left;
+	height: 600px;
+	text-align: left;
+	font-size: 19px;
+	-webkit-transition: background 0.4s; /* Safari */
+  	transition: background 0.4s;
+}
+
+#enter {
+	background: #AEDBDA;
+}
+
+#enter:hover {
+	background: #B0F0EF;
+	cursor: pointer;
+}
+
+#exit {
+	background: #DAC5E0;
+}
+
+#exit:hover {
+	background: #E6D1EB;
+	cursor: pointer;
+}
+
 </style>
 
 </head>
@@ -85,6 +131,9 @@ function animate() {
 
 <div id="wrapper">
 	<div class="container">
+
+	<div id="enter">Make me decide</div>
+	<div id="exit">I'm bored, take me to Facebook</div>
 
 		<div class="card"> 
 		  <div class="front"> 
