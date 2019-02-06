@@ -14,14 +14,21 @@
 $(document).ready( function() {
   $(".card").flip();
 
-  $(".card").each( function() {
-  	if(Math.random() > 0.5) $(this).flip(true)
-  })
-
   $(".card").mouseenter( function() {
     $(this).flip('toggle');
   })
 })
+
+$(window).on('load', function() {
+  setTimeout( animate, 500) 
+  // 0.5 second delay before flipping the cards on load
+});
+
+function animate() {
+	$(".card").each( function() {
+  	if(Math.random() > 0.5) $(this).flip('toggle')
+  })
+}
 
 </script>
 
