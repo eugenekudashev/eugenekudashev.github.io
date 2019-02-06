@@ -15,8 +15,11 @@
 
 $(document).ready( function() {
   
-$(".card").hide()
+$(".card, #enter, #exit").hide()
 //start empty
+
+$("#enter, #exit").fadeIn(1000)
+//fade in 1s
 
 $("#enter").click( function() {
 	$("#enter, #exit").hide()
@@ -25,7 +28,9 @@ $("#enter").click( function() {
 })
 
 $("#exit").click( function() {
-	window.location.replace("https://facebook.com");
+	str = ["Really? Facebook?"]
+	$("#exit").text(str[0])
+	// window.location.replace("https://facebook.com");
 })
 
   // setup: random 200–800ms animation duration for each card
