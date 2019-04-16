@@ -31,7 +31,7 @@ $(document).ready( function() {
   msHour = 60*60*1000,
     msDay = 60*60*24*1000;
   
-init();
+// init();
 
 function init() {
 	var today = new Date();
@@ -120,7 +120,7 @@ body {
 /*display:none;  DO NOT FORGET TO REMOVE THIS IN OTHER PROJECTS */
   margin-left: auto;
   margin-right: auto;
-  width: 90vw;
+  width: 80vw;
   /*display: inline-block;*/
   /*whatever width you want*/
 }
@@ -135,7 +135,7 @@ a, a:focus, a:hover, a:visited {
 }
 
 #countdown {
-	font-size: 15vw;
+	font-size: 12vw;
 	font-family: 'Poppins', sans-serif;
 }
 
@@ -167,7 +167,7 @@ a, a:focus, a:hover, a:visited {
     <div class="inner">
       
       <span id="intro">До вступления в силу <a href="https://meduza.io/news/2019/04/16/gosduma-prinyala-zakon-ob-izolyatsii-runeta" target="blank">закона об изоляции Рунета</a> осталось</span>
-		<h1 id="countdown"></h1>
+		<h1 id="countdown">000:00:00:00</h1>
 		
     </div>
   </div>
