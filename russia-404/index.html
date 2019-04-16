@@ -82,6 +82,9 @@ function get_seconds(today) {
 
 </script>
 
+<link href="https://fonts.googleapis.com/css?family=Anonymous+Pro" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+
 <style type="text/css">
 
 * {
@@ -92,32 +95,91 @@ function get_seconds(today) {
 body {
 	background: #121212;
 	color: white;
-	font-family: Monaco;
+	/*font-family: Monaco, Courier New, monospace;*/
+	font-family: 'Anonymous Pro', sans-serif;
+	word-break: break-word;
+	overflow-wrap: break-all;
 }
 
+.outer {
+  display: table;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  /*text-align: center;*/
+}
 
-a:visited {
-	color: blue;
+.middle {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.inner {
+/*display:none;  DO NOT FORGET TO REMOVE THIS IN OTHER PROJECTS */
+  margin-left: auto;
+  margin-right: auto;
+  width: 90vw;
+  /*display: inline-block;*/
+  /*whatever width you want*/
+}
+
+#intro {
+	font-weight: bold;
+	text-align: center;
+}
+
+a, a:focus, a:hover, a:visited {
+	color: red;
 }
 
 #countdown {
-	font-size: 10vw;
+	font-size: 15vw;
+	font-family: 'Poppins', sans-serif;
 }
 
 #wrapper {
-	position: relative;
-	left: 40px;
-	top: 80px;
+	
+}
+
+#telegram {
+	position: absolute;
+	bottom: 1em;
+	left: 1em;
+	width: 10em;
+}
+
+#credits {
+	position: absolute;
+	bottom: 1em;
+	right: 0.1em;
+	width: 6em;
 }
 </style>
 
 </head>
 
 <body>
-<div id="wrapper">
-	<span>До вступления в силу <a href="https://meduza.io/news/2019/04/16/gosduma-prinyala-zakon-ob-izolyatsii-runeta" target="blank">закона об изоляции Рунета</a> осталось</span>
-	<h1 id="countdown"></h1>
+
+<div class="outer">
+  <div class="middle">
+    <div class="inner">
+      
+      <span id="intro">До вступления в силу <a href="https://meduza.io/news/2019/04/16/gosduma-prinyala-zakon-ob-izolyatsii-runeta" target="blank">закона об изоляции Рунета</a> осталось</span>
+		<h1 id="countdown"></h1>
+		
+    </div>
+  </div>
 </div>
+
+<!-- <div id="wrapper">
+	<span id="intro">До вступления в силу <a href="https://meduza.io/news/2019/04/16/gosduma-prinyala-zakon-ob-izolyatsii-runeta" target="blank">закона об изоляции Рунета</a> осталось</span>
+	<h1 id="countdown"></h1>
+</div> -->
+
+<div id="telegram">Подписывайтесь на вот этот <a href="#">канал в Телеграме</a> (пока его не запретили)</div>
+<div id="credits">Made by Nik & Eugene</div>
 </body>
 
 </html>
