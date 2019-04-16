@@ -21,6 +21,17 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-18817813-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-18817813-2');
+</script>
+
+
 <script type="text/javascript">
 
 $(document).ready( function() {
@@ -31,7 +42,7 @@ $(document).ready( function() {
   msHour = 60*60*1000,
     msDay = 60*60*24*1000;
   
-// init();
+init();
 
 function init() {
 	var today = new Date();
