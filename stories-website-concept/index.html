@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title>title here again</title>
+	<meta name="description" content="description here again">
+
+	<meta property="og:title" content="title here again" />
+	<meta name="og:description" content="description here again" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="http://eugenekudashev.com/url-of-this-page/" />
+	<meta property="og:image" content="http://eugenekudashev.com/url-of-this-page/thumbnail.png" />
+	<!-- <meta property="og:video" content="http://eugenekudashev.com/real-time-salary-counter/salary-counter-video.mov" /> -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:site" content="@eugenekudashev" />
+	<meta name="twitter:creator" content="@eugenekudashev" />
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<!-- makes mobile queries work -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://livejs.com/live.js"></script>
+
+
+<script type="text/javascript">
+
+$(document).ready( function() {
+
+  var current_story = 0;
+
+  //initialize
+  $("img").attr("src", "story" + current_story + ".png")
+
+  // get list item
+  // append tmp element inside
+  // animate
+  // wait 5 seconds
+  // increase counter
+  // repeat
+  
+  function foo() {
+  	$("img").attr("src", "story" + current_story + ".png")
+  	$( "li" ).eq( current_story ).append( "<div id='tmp'></div>" )
+  $("#tmp").css({width:'0%'})
+  $("#tmp").animate({
+  	width:'100%'
+  }, 2000, function() {
+  	
+  	$("#tmp").remove()
+  	current_story++
+  	if(current_story == $("li").length) clearInterval(sequential_animation)
+  })
+
+  }
+  foo();
+  var sequential_animation = setInterval(foo, 2100);
+  
+
+  
+  //this fails because i have no idea how to properly handle recursion
+
+  // $( "li" ).eq( current_story ).append( "<div id='tmp'></div>" )
+  // $("#tmp").css({width:'0%'})
+  // $("#tmp").animate({
+  // 	width:'100%'
+  // }, 5000, function() {
+  	
+  // 	$("#tmp").remove()
+  // 	current_story++
+	 //  	$( "li" ).eq( current_story ).append( "<div id='tmp'></div>" )
+	 //  $("#tmp").css({width:'0%'})
+	 //  $("#tmp").animate({
+	 //  	width:'100%'
+	 //  }, 5000, function() {
+	 //  	$("#tmp").remove()
+	 //  	current_story++
+	 //  })
+  //   }
+  // )
+
+  
+  
+  
+})
+
+</script>
+
+<style type="text/css">
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.outer {
+  display: table;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  /*text-align: center;*/
+}
+
+.middle {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.inner {
+/*display:none; */
+/* DO NOT FORGET TO REMOVE THIS IN OTHER PROJECTS */
+  margin-left: auto;
+  margin-right: auto;
+  width: 375px;
+  /*display: inline-block;*/
+  /*whatever width you want*/
+}
+
+body {
+	background: #2B2B2B;
+}
+
+/*@media only screen and (max-width: 768px) {*/
+	#story img {
+		width: 375px;
+	}
+/*}*/
+
+.tabs {
+    max-width: 375px;
+    width:100%;
+}
+
+.tabs ul {
+        display: flex;
+        flex-direction: row;
+        height: 2px;
+        justify-content: space-between;
+        margin: 4px 0;
+    }
+
+.tabs ul li {
+            flex-grow:1;
+            flex-basis: 0;
+            list-style:none;
+            background: #808080;
+            margin-right: 2px;
+            border-radius: 2px;
+        }
+.tabs ul li:last-child {
+	margin:0;
+}
+
+.tabs ul li.active {
+                background: #FDFDFD;
+            }
+
+#tmp {
+	width: 0%;
+	background: white;
+	height: 2px;
+}
+
+</style>
+
+</head>
+
+<body>
+<div class="outer">
+  <div class="middle">
+    <div class="inner">
+	    <div id="story">
+	    	<div class="tabs">
+			    <ul>
+			        <li>
+			        	<!-- <div id="tmp"></div> -->
+			        </li>
+			        <li></li>
+			        <li></li>
+			        <li></li>
+			        <li></li>
+			        <li></li>
+			        <li></li>
+
+			    </ul>
+			</div>
+
+	    	<img src="story0.png">
+	    </div>
+    </div>
+    </div>
+  </div>  
+</div>
+</body>
+
+</html>
