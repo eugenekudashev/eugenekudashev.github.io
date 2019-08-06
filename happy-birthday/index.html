@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title>с днем рождения санж</title>
+	<!-- <meta name="description" content="description here again"> -->
+
+	<!-- <meta property="og:title" content="title here again" /> -->
+	<!-- <meta name="og:description" content="description here again" /> -->
+	<meta property="og:type" content="website" />
+	<!-- <meta property="og:url" content="http://eugenekudashev.com/url-of-this-page/" /> -->
+	<meta property="og:image" content="http://eugenekudashev.com/happy-birthday/corgi.png" />
+	<!-- <meta property="og:video" content="http://eugenekudashev.com/real-time-salary-counter/salary-counter-video.mov" /> -->
+	<!-- <meta name="twitter:card" content="summary_large_image" /> -->
+	<!-- <meta name="twitter:site" content="@eugenekudashev" /> -->
+	<!-- <meta name="twitter:creator" content="@eugenekudashev" /> -->
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<!-- makes mobile queries work -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+$(document).ready( function() {
+
+	var counter = 0;
+
+  $("body").click(function(e) {
+  	var cursorX;
+    var cursorY;
+    cursorX = e.pageX;
+    cursorY = e.pageY;
+
+    var div = document.createElement("div");
+		div.style.width = "100px";
+		div.style.height = "100px";
+		div.style.background = "url('smallcorgi.png') no-repeat";
+		div.style.position = "absolute";
+		div.style.top = cursorY + "px";
+		div.style.left = cursorX + "px";
+
+		document.body.appendChild(div);
+		counter++
+
+		if(counter == 30) {
+			window.location.href = "https://www.notion.so/163d23a96dd14f91b3b7f08eee92746f";
+		}
+
+  })
+
+})
+
+</script>
+
+<style type="text/css">
+* {
+  cursor: url('smallcorgi.png'), auto;	
+}
+body {
+	height: 1000px;
+}
+</style>
+
+</head>
+
+<body>
+
+</body>
+
+</html>
