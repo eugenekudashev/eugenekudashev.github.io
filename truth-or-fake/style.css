@@ -1,0 +1,80 @@
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 400;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
+}
+
+* {
+  font-family: "San Francisco", -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Helvetica", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+#headline {
+  background: black;
+  color: white;
+  padding: 1em;
+  height: 50vh;
+  overflow: hidden;
+}
+
+h1 {
+  font-weight: 600;
+  font-size: 2em;
+  overflow: hidden;
+}
+
+#question {
+  margin: 1em;
+}
+
+#question p {
+  font-size: 2em;
+}
+
+#question span {
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 0.1em 0.3em;
+  cursor: pointer;
+    transition: background-color 0.1s ease;
+
+}
+
+@media only screen and (min-width: 768px) {
+        #question span:hover {
+        color: #fff;
+        background-color: #000;
+      }
+    }
+
+
+.wrong {
+  background: red;
+  color: white;
+  border: 1px solid red !important;
+}
+
+.correct {
+  background: green;
+  color: white;
+  border: 1px solid green !important;
+}
+
+#score {
+  position: absolute;
+  bottom: 0.5em;
+  left: 0.5em;
+  font-size: 2em;
+}
+
+#credits {
+  position: absolute;
+  bottom: 1em;
+  right: 1em;
+  font-size: 1em;
+  color: #555;
+/*   opacity: 0.75; */
+}
