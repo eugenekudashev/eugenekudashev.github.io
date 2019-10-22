@@ -104,7 +104,7 @@ $("document").ready(function() {
       
       setTimeout(function(){
         tmp.removeClass('correct')
-        $("h1").animate({width:'toggle'},150);
+        if(real.length > 0 && fake.length > 0) $("h1").animate({width:'toggle'},150);
       }, 1000);
       
     }
@@ -115,7 +115,7 @@ $("document").ready(function() {
       
       setTimeout(function(){
         tmp.removeClass('wrong')
-        $("h1").animate({width:'toggle'},150);
+        if(real.length > 0 && fake.length > 0) $("h1").animate({width:'toggle'},150);
       }, 1000);
     }
     
