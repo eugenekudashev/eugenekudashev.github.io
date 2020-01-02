@@ -39,23 +39,37 @@ $(document).ready( function() {
   // increase counter
   // repeat
   
-  function foo() {
-  	$("img").attr("src", "story" + current_story + ".png")
-  	$( "li" ).eq( current_story ).append( "<div id='tmp'></div>" )
-  $("#tmp").css({width:'0%'})
-  $("#tmp").animate({
-  	width:'100%'
-  }, 2000, function() {
-  	
-  	$("#tmp").remove()
-  	current_story++
-  	if(current_story == $("li").length) clearInterval(sequential_animation)
-  })
+  var animation_length = 3000;
 
-  }
-  foo();
-  var sequential_animation = setInterval(foo, 2100);
+  function foo() {
+  	// update image
+    $("img").attr("src", "story" + current_story + ".png")
+
+    // update top bar
+  	$( "li" ).eq( current_story ).append( "<div id='tmp'></div>" )
+    $("#tmp").css({width:'0%'})
   
+    $("#tmp").animate({
+    	width:'100%'
+    }, animation_length, function() {
+    	
+    	$("#tmp").remove()
+    	current_story++
+
+      // if last?
+    	// if(current_story == $("li").length) clearInterval(sequential_animation)
+      if(current_story == $("li").length) current_story = 0
+    })
+
+  } // end of foo()
+
+
+  foo();
+  var sequential_animation = setInterval(foo, animation_length + 100);
+  
+  $("#the_img").click(function() {
+
+  })
 
   
   //this fails because i have no idea how to properly handle recursion
@@ -162,6 +176,10 @@ body {
 	height: 2px;
 }
 
+#invisible {
+  display: none;
+}
+
 </style>
 
 </head>
@@ -186,7 +204,16 @@ body {
 			    </ul>
 			</div>
 
-	    	<img src="story0.png">
+	    	<img id="the_img" src="story0.png">
+
+        <div id="invisible">
+          <img src="story1.png">
+          <img src="story2.png">
+          <img src="story3.png">
+          <img src="story4.png">
+          <img src="story5.png">
+          <img src="story6.png">
+        </div>
 	    </div>
     </div>
     </div>
