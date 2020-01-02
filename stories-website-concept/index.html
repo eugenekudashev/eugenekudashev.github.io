@@ -41,34 +41,47 @@ $(document).ready( function() {
   
   var animation_length = 3000;
 
+  // var custom_animation_length = [3000, 3000, 3000, 3000, 5000, 5000, 5000]
+
   function foo() {
   	// update image
     $("img").attr("src", "story" + current_story + ".png")
 
-    // update top bar
+    console.log("current_story is " + current_story)
+    console.log("appending the thing in a position " + current_story)
+    // append a temp div to the top bar that we'll animate 
   	$( "li" ).eq( current_story ).append( "<div id='tmp'></div>" )
+    console.log("appended successfully")
+
     $("#tmp").css({width:'0%'})
   
+
     $("#tmp").animate({
     	width:'100%'
     }, animation_length, function() {
     	
-    	$("#tmp").remove()
-    	current_story++
+      // and increase the counter
+      current_story++
 
-      // if last?
-    	// if(current_story == $("li").length) clearInterval(sequential_animation)
+      // when the animation is over, remove tmp div
+    	$("#tmp").remove()
+
+      // if last, loop
       if(current_story == $("li").length) current_story = 0
+
+    	// if(current_story == $("li").length) clearInterval(sequential_animation)
+      
     })
 
   } // end of foo()
 
 
-  foo();
+  // foo();
+
   var sequential_animation = setInterval(foo, animation_length + 100);
   
   $("#the_img").click(function() {
-
+    // TODO: pause animation on click
   })
 
   
@@ -191,16 +204,13 @@ body {
 	    <div id="story">
 	    	<div class="tabs">
 			    <ul>
-			        <li>
-			        	<!-- <div id="tmp"></div> -->
-			        </li>
 			        <li></li>
 			        <li></li>
 			        <li></li>
 			        <li></li>
 			        <li></li>
 			        <li></li>
-
+			        <li></li>
 			    </ul>
 			</div>
 
