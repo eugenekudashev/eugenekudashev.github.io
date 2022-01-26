@@ -23,6 +23,10 @@ Math.random = (function xoshiro128p() {
 $("#price").text(Math.floor( Math.random() * 1000000 ) / 100)
 
 $(function() {  //jquery ready
+
+    setTimeout( () => {
+      $(".intro").hide()
+    }, 5000)
   
     var randomizer = window.setInterval(function() {
       //flip a coin -- which "random" function should be used
