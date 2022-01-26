@@ -66,44 +66,46 @@
     <script src="script.js" defer></script>
   </head>
   <body>
-    <img class="intro" src="social_thumbnail.png">
-    <h1>
-      Randomcoin (RAND)
-<!--       <br/><span style="font-weight: normal;">current price</span> -->
-    </h1>
-    <h1>
-      $<span id="price">0</span> <span id="change"></span>
-    </h1>
-    <h1 class="btn" id="buy">
-      buy low
-    </h1>
-    <h1 class="btn" id="sell">
-      sell high
-    </h1>
-    <h1 id="status">
-      <span style="font-weight: normal;">your funds </span>
-      <br/>
-      $<span style="font-weight: bold;" id="funds-fiat">5000</span>
-      <br/>
-      <span style="font-weight: bold;" id="funds-coin">0</span> RAND
-    </h1>
-    <div id="chart_container">
-      <canvas id="myChart"></canvas>
-    </div>
-    <div class="no-funds">
+    <img class="intro" src="intro.png">
+    <div id="container">
       <h1>
-        NOT ENOUGH MONEY
+        Randomcoin (RAND)
+  <!--       <br/><span style="font-weight: normal;">current price</span> -->
       </h1>
-    </div>
-    <div class="no-coins">
       <h1>
-        NOT ENOUGH COINS
+        $<span id="price">0</span> <span id="change"></span>
       </h1>
+      <h1 class="btn" id="buy">
+        buy low
+      </h1>
+      <h1 class="btn" id="sell">
+        sell high
+      </h1>
+      <h1 id="status">
+        <span style="font-weight: normal;">your funds </span>
+        <br/>
+        $<span style="font-weight: bold;" id="funds-fiat">5000</span>
+        <br/>
+        <span style="font-weight: bold;" id="funds-coin">0</span> RAND
+      </h1>
+      <div id="chart_container">
+        <canvas id="myChart"></canvas>
+      </div>
+      <div class="no-funds">
+        <h1>
+          NOT ENOUGH MONEY
+        </h1>
+      </div>
+      <div class="no-coins">
+        <h1>
+          NOT ENOUGH COINS
+        </h1>
+      </div>
+      <a href="what.txt" target="_blank"><div class="what-btn">
+        <h2>
+          ???
+        </h2>
+      </div></a>
     </div>
-    <a href="what.txt" target="_blank"><div class="what-btn">
-      <h2>
-        ???
-      </h2>
-    </div></a>
   </body>
 </html>

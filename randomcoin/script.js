@@ -23,9 +23,10 @@ Math.random = (function xoshiro128p() {
 $("#price").text(Math.floor( Math.random() * 1000000 ) / 100)
 
 $(function() {  //jquery ready
-
+    $("#container").hide()
     setTimeout( () => {
       $(".intro").hide()
+      $("#container").show()
     }, 5000)
   
     var randomizer = window.setInterval(function() {
