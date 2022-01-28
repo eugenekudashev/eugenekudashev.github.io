@@ -81,6 +81,16 @@
   color: white;
 }
 
+.support {
+  position: fixed;
+  bottom: 0.2em;
+  left: 0.2em;
+}
+
+.support h2 {
+  text-decoration: underline;
+}
+
 
 * {
   user-select: none;
