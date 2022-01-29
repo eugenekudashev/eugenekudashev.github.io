@@ -1,0 +1,19 @@
+ideas for v1.1:
+
+- a more complex randomization algorithms
+- difficulty levels: easy/medium/hard
+- ability to buy futures and shorts
+- introduce a story, with events & choices that affect the gameplay 
+  - "the government introduced crypto tax"
+  - "someone hacked your crypto wallet"
+  - "you got a job offer from a major investment fund"
+  - and so on
+- stagnation period: for 30 seconds, the price hovers in low 100-200s
+- "to the moon": with a 0.5% chance, the coin jumps to the moon
+- SecretCoin: a second cryptocurrency that needs to be unlocked
+- NiceCoin: another cryptocurrency that unlocks when you hit $69420 exactly
+- imaginary crypto startups that you can invest in
+- NFTs, of course
+- add shorting on margin, borrowing against other users that currently hold $RAND, and being force liquidated if the other users sell (via @vmception -- https://news.ycombinator.com/item?id=30114358)
+
+
