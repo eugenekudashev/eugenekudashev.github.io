@@ -2,6 +2,7 @@ ideas for v1.1:
 
 - a more complex randomization algorithms
 - leaderboard!!!
+- music & sound effects
 - difficulty levels: easy/medium/hard
 - ability to buy futures and shorts
 - introduce a story, with events & choices that affect the gameplay 
