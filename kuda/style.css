@@ -1,0 +1,20 @@
+* {
+  font-family: Helvetica;
+}
+
+h1 {
+  font-weight: bold;
+}
+
+.map th, .map td {
+  border: 1px solid black;
+  padding: 1em;
+}
+
+td.empty {
+  border: none;
+}
+
+td.russia {
+  background: black;
+}
