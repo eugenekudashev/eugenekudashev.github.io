@@ -1,0 +1,71 @@
+<html>
+  <head>
+    <link id="pagestyle" href="style1.css" rel="stylesheet" type="text/css" />
+    <style>
+      button {font-size:100%;}
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jss/10.9.1-alpha.2/jss.min.js" integrity="sha512-dbAvtJ5HXylwDi5dKWshLd5gDmoRamaCy1wXDb3nVmu/JzOATDHikgbPpVRG4/13HPNoS0XkUd0YGL3vP0iaRg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+      function swapStyleSheet(sheet) {
+        document.getElementById("pagestyle").setAttribute("href", sheet);  
+      }
+      
+      $(document).ready( () => {
+        $(".sent").click( function(){
+          $(".reveal").removeClass("reveal")
+          $(this).addClass("reveal")
+        })
+        
+        $(".sent").mouseover( function(){
+          $(".reveal").removeClass("reveal")
+          $(this).addClass("reveal")
+        })
+        
+        $("#blur").click( function() {
+          swapStyleSheet("style2.css")
+        })
+        
+        $("#redacted").click( function() {
+          swapStyleSheet("style1.css")
+        })
+        
+        $("#grey").click( function() {
+          swapStyleSheet("style3.css")
+        })
+        
+      })
+    </script>
+  </head>
+  <body>
+    
+    <button id="blur">
+      blur
+    </button>
+    <button id="redacted">
+      redacted
+    </button>
+    <button id="grey">
+      grey
+    </button>
+    
+    <br/>
+    
+    <span class="sent reveal">oh oh i got poetry on me mind.</span> 
+    <span class="sent">i will probably start with flavours.</span> 
+    <span class="sent">it’s either that, or it’s algorithms.</span> 
+    <span class="sent">algo rhythms, it’s a music style that stem for the rhytms created by pulling the letters A L G O in various pixelated dimensions, and by applying various Plane-3 categories and toponyms in a completely random order defined by our monkey’s hawk Stephen?</span> 
+      <span class="sent">what the actual fuck?</span> 
+    <span class="sent">you, my friend, are confused.</span> 
+    <span class="sent">it is very apparent to me, and i believe that deep down apparent to yourself too, as well.</span> 
+    <span class="sent">simultaneously.</span> 
+    <span class="sent">the word appeared on the screen as if it meant something.</span> 
+    <span class="sent">as if this was a movie, or a dream, or one inside the other, multiple times.</span> 
+    <span class="sent">it was blinkingwinking at me for my amazing beard, probably, i don’t know.</span> 
+    <span class="sent">you rarely see a word actively looking at you, staring at you, basically ORDERING you to inspect it, to fucking pay attention, listen.</span> 
+    <span class="sent">because this is not dead letters anymore, not text, not literature, not prose, not fucking high-brow “reading”, let all this become a relic of the past, all right? this is SPEECH.</span> <span class="sent">you are LISTENING.</span> 
+    <span class="sent">writing and reading are technical acts, merely, the easiest portable for SPEECH.</span> <span class="sent">that concept is central and often overlooked, mistake.</span> 
+    <span class="sent">i like that stylistic move i did over there.</span> 
+    <span class="sent">“something something, mistake” — a stunning invention, really, that comma mistake really hits an interesting unusual bit, like a very short pause followed by an abrupt dead end for that sentence, as like it flows flows flows, and that pooooosh and out it goes.</span>
+  </body>
+</html>

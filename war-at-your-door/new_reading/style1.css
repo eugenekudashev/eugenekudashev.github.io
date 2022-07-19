@@ -1,0 +1,19 @@
+body { 
+  line-height: 2;
+  font-size: 200%;
+}
+      
+@media only screen and (min-width: 768px ) {
+  body {
+    font-size: 400%;
+  }
+}
+
+.sent {
+  background: black;
+/*         filter: blur(8px); */
+}
+.reveal {
+  background: white !important;
+/*         filter: blur(0); */
+}

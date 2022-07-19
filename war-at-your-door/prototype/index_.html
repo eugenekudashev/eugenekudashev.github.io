@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--
+      This is the page head - it contains info the browser uses to display the page
+      You won't see what's in the head in the page
+      Scroll down to the body element for the page content
+    -->
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="https://glitch.com/favicon.ico" />
+
+    <!-- 
+      This is an HTML comment
+      You can write text in a comment and the content won't be visible in the page
+    -->
+
+    <title>Hello World!</title>
+
+    <!-- Meta tags for SEO and social sharing -->
+    <link rel="canonical" href="https://glitch-hello-website.glitch.me/" />
+    <meta
+      name="description"
+      content="A simple website, built with Glitch. Remix it to get your own."
+    />
+    <meta name="robots" content="index,follow" />
+    <meta property="og:title" content="Hello World!" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://glitch-hello-website.glitch.me/" />
+    <meta
+      property="og:description"
+      content="A simple website, built with Glitch. Remix it to get your own."
+    />
+    <meta
+      property="og:image"
+      content="https://cdn.glitch.com/605e2a51-d45f-4d87-a285-9410ad350515%2Fhello-website-social.png?v=1616712748147"
+    />
+    <meta name="twitter:card" content="summary" />
+
+    <!-- Import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style_.css" />
+
+    <!-- Import the webpage's javascript file -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="/script.js" defer></script>
+  </head>
+  <body>
+    <audio id="player" src="https://cdn.glitch.global/da7afc9c-6d0d-4171-b3db-742fe86ae414/siren.mp3?v=1657541186175" loop></audio>
+    <h1>
+      discomfort zone
+    </h1>
+    <h2>
+      directions:
+    </h2>
+<!--     <ol>
+      <li>go to a place where you feel comfortable and safe: <br/>your room, a park, you get the idea</li>
+      <li>put your headphones on</li>
+      <li>enter discomfort zone, and immediately step away from the screen</li>
+      <li>look around. listen. pay attention.</li>
+      <li>discomfort zone will let you out in 5 minutes</li>
+    </ol> -->
+    
+    
+    <details id="directions">
+      <summary>1. go to a place where you feel comfortable and safe: <br/>your room, a park, you get the idea</summary>
+      <details>
+        <summary>2. put your headphones on</summary>
+        <details>
+          <summary>3. enter discomfort zone, and immediately step away from the screen</summary>
+          <details>
+            <summary>4. look around. listen. pay attention.</summary>
+            <div>5. discomfort zone will let you out in 5 minutes</div>
+          </details>
+        </details>
+      </details>
+    </details>
+
+    
+    <button onclick="document.getElementById('player').play()">
+      enter discomfort zone
+    </button>
+  </body>
+</html>
