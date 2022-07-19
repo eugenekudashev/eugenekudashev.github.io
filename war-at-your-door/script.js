@@ -4,7 +4,7 @@ $(document).ready( () => {
   
   animate_intro()
   // $("#intro").hide()
-  $("#slide1, #slide2, #slide3, #slide4, #slide_whatt").hide()
+  $("#slide1, #slide2, #slide3, #slide4, #slide_what").hide()
   
   // -----------------------------------------------
   
