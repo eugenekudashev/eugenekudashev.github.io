@@ -4,21 +4,21 @@ $(document).ready( () => {
   
   animate_intro()
   // $("#intro").hide()
-  $("#slide1, #slide2, #slide3, #slide4, #slide_what").hide()
+  $("#slide1, #slide2, #slide3, #slide4, #slide_whatt").hide()
   
   // -----------------------------------------------
   
   $("#intro .btn").click( () => {
     $("#intro").hide(); $("#slide1").show();
     gsap.to("#slide1 .btn", {scale: 1.05, duration: 2, repeat: 1000, yoyo: true})
-    document.getElementById("directions").src = "https://cdn.glitch.global/da7afc9c-6d0d-4171-b3db-742fe86ae414/headphones.mp3?v=1658149474583"
+    document.getElementById("directions").src = "assets/headphones.mp3"
     document.getElementById("directions").play()
   })
   
   $("#slide1 .btn").click( () => {
     $("#slide1").hide(); $("#slide2").show();
     gsap.to("#slide2 .btn", {scale: 1.05, duration: 2, repeat: 1000, yoyo: true})
-    document.getElementById("directions").src = "https://cdn.glitch.global/da7afc9c-6d0d-4171-b3db-742fe86ae414/screenoff.mp3?v=1658150488033"
+    document.getElementById("directions").src = "assets/screenoff.mp3"
     document.getElementById("directions").play()
   })
   
@@ -41,7 +41,7 @@ $(document).ready( () => {
     } , 1000 )
     
     setTimeout( () => {
-      document.getElementById("directions").src = "https://cdn.glitch.global/da7afc9c-6d0d-4171-b3db-742fe86ae414/fileout.mp3?v=1658149035740"
+      document.getElementById("directions").src = "assets/stop_audio.mp3"
       document.getElementById("directions").play()
       $("#slide3 .btn").show()
       gsap.to("#slide3 .btn", {scale: 1.05, duration: 2, repeat: 1000, yoyo: true})
