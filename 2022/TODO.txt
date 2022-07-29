@@ -1,0 +1,14 @@
+TODO - redoing my website - july 29, 2022
+
+- rebuild Notion page with HTML
+- remove irrelevant work
+- add new work
+- rewrite everything
+- consider different information architecture
+- improve navigation
+- improve typography
+- set up separate pages for long form writing
+- move everything from external services (Dropbox Paper, Medium, etc.) on site
+- add all fiction writing from the archives
+- add sections for books, movies, podcasts, etc. that matter to me very much
+- replace google analytics with goat keeper
