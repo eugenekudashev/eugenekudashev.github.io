@@ -10,6 +10,7 @@ TODO - redoing my website - july 29, 2022
 - consider different information architecture
 - improve navigation
 - improve typography
+- add easter eggs!
 - set up separate pages for long form writing
 - move everything from external services (Dropbox Paper, Medium, etc.) on site
 - add all fiction writing from the archives
