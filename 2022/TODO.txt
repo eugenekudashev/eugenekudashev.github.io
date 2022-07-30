@@ -1,6 +1,9 @@
 TODO - redoing my website - july 29, 2022
 
-- rebuild Notion page with HTML
+- rebuild Notion page with HTML ✅
+  - optimize youtube embeds ✅
+  - switch from display: flex; to display: grid; ✅
+- move eugenekudashev.com from Notion to this
 - remove irrelevant work
 - add new work
 - rewrite everything
