@@ -24,6 +24,30 @@
   }
 }*/
 
+  #logo_desktop{
+   display:block;
+   width: 80%;
+   margin: 0 auto;
+  }
+
+ #logo_mobile{
+  display:none;
+ }
+
+@media (max-width: 640px) and (min-width: 320px){
+  #logo_desktop{
+   display:none;
+  }
+
+  #logo_mobile{
+   display:block;
+   width: 80%;
+   margin: 0 auto;
+  }
+}
+
+
+
 .container {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));

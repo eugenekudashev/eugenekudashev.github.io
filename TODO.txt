@@ -8,7 +8,9 @@ TODO - redoing my website - july 29, 2022
 - add new work
 - rewrite everything
 - consider different information architecture
-- improve navigation
+- add handwritten title✅ (aug 29 '22)
+- add basic navigation✅ (aug 29 '22)
+- improve navigation 
 - improve typography
 - add easter eggs!
 - set up separate pages for long form writing
