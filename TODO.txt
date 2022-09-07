@@ -1,9 +1,9 @@
 TODO - redoing my website - july 29, 2022
 
-- rebuild Notion page with HTML ✅
-  - optimize youtube embeds ✅
-  - switch from display: flex; to display: grid; ✅
-- move eugenekudashev.com from Notion to this ✅
+- rebuild Notion page with HTML ✅ (jul 30 '22)
+  - optimize youtube embeds ✅ (jul 30 '22)
+  - switch from display: flex; to display: grid; ✅ (jul 30 '22)
+- move eugenekudashev.com from Notion to this ✅ (jul 30 '22)
 - remove irrelevant work
 - add new work
 - rewrite everything
@@ -17,4 +17,5 @@ TODO - redoing my website - july 29, 2022
 - move everything from external services (Dropbox Paper, Medium, etc.) on site
 - add all fiction writing from the archives
 - add sections for books, movies, podcasts, etc. that matter to me very much
-- replace google analytics with goat keeper ✅
+- replace google analytics with goat keeper ✅ (jul 30 '22)
+- add link to the real newsletter ✅ (sep 7 '22)
