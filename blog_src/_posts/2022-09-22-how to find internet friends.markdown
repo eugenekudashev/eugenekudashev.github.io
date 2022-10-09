@@ -1,6 +1,8 @@
 ---
 layout: post
 title: "how to find internet friends"
+description: "something???"
+image: ../img/blog/how to find internet friends.png
 ---
 
 <style>
