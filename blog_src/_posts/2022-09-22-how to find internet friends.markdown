@@ -2,7 +2,7 @@
 layout: post
 title: "how to find internet friends"
 description: "something???"
-image: ../img/blog/how to find internet friends.png
+image: https://eugenekudashev.com/img/blog/how%20to%20find%20internet%20friends.png
 ---
 
 <style>
