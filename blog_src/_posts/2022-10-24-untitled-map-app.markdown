@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "on digital maps & consumerist city"
-description: ""
+description: "how google maps stole your adventures"
 image: https://eugenekudashev.com/img/blog/on digital maps & consumerist city.png
 ---
 
