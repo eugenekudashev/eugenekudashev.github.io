@@ -13,7 +13,6 @@ p { line-height: 1.6; margin-bottom: 2em; }
 h1 { margin-bottom: 0.5em !important; }
 </style>
 
-
 this essay briefly covers:
 
 - how google maps ruined the exploratory walks
