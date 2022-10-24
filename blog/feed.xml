@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="/blog/" rel="alternate" type="text/html" /><updated>2022-10-24T12:26:12+02:00</updated><id>/blog/feed.xml</id><title type="html">eugene kudashev finally has a blog???</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">on digital maps &amp;amp; consumerist city</title><link href="/blog/untitled-map-app" rel="alternate" type="text/html" title="on digital maps &amp;amp; consumerist city" /><published>2022-10-24T00:00:00+02:00</published><updated>2022-10-24T00:00:00+02:00</updated><id>/blog/untitled-map-app</id><content type="html" xml:base="/blog/untitled-map-app"><![CDATA[<style>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="/blog/" rel="alternate" type="text/html" /><updated>2022-10-24T17:00:49+02:00</updated><id>/blog/feed.xml</id><title type="html">eugene kudashev finally has a blog???</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">on digital maps &amp;amp; consumerist city</title><link href="/blog/untitled-map-app" rel="alternate" type="text/html" title="on digital maps &amp;amp; consumerist city" /><published>2022-10-24T00:00:00+02:00</published><updated>2022-10-24T00:00:00+02:00</updated><id>/blog/untitled-map-app</id><content type="html" xml:base="/blog/untitled-map-app"><![CDATA[<style>
 * { font-family: Times New Roman, Times, sans-serif; }
 .post-title { font-size: 200%; }
 article { font-size: 200%; }
@@ -256,4 +256,41 @@ hr {
   <li>no surveillance, no tracking. period</li>
   <li>the citizens can contribute financially, if they choose to.</li>
   <li>the whole thing is subsidized by governments,</li>
-</ol>]]></content><author><name></name></author><summary type="html"><![CDATA[]]></summary></entry></feed>
+</ol>]]></content><author><name></name></author><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">i want to make software that feels like magic</title><link href="/blog/i-want-to-make-software-that-feels-like-magic" rel="alternate" type="text/html" title="i want to make software that feels like magic" /><published>2022-09-05T00:00:00+02:00</published><updated>2022-09-05T00:00:00+02:00</updated><id>/blog/i-want-to-make-software-that-feels-like-magic</id><content type="html" xml:base="/blog/i-want-to-make-software-that-feels-like-magic"><![CDATA[<style>
+* { font-family: Times New Roman, Times, sans-serif; }
+.post-title { font-size: 200%; }
+article { font-size: 200%; }
+p { line-height: 1.6; margin-bottom: 2em; }
+h1 { margin-bottom: 0.5em !important; }
+</style>
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">i want to make software that feels like magic. <br /><br />i want to make software that is useful, to many people; that is valuable, that makes sense. but that&#39;s also surprising, pleasant, funny.<br /><br />i want to make software is serious and makes sense but is also silly and doesn&#39;t.</p>&mdash; eugene is trying his best to make you laugh 🥲🥲🥲 (@eugenekudashev) <a href="https://twitter.com/eugenekudashev/status/1566882267825426433?ref_src=twsrc%5Etfw">September 5, 2022</a></blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p><strong>i want to make software that is useful</strong>, to many people; that is valuable, that makes sense. but that’s also surprising, pleasant, funny.</p>
+
+<p><strong>i want to make software that is serious and makes sense</strong> but is also silly and doesn’t.</p>
+
+<p><strong>i want to make software that is not elitist</strong> and which primary goal is not Shareholder Value. i want to make software for everyone; software that addresses some very basic personal human needs, that is not for a tiny exclusive group. software that speaks a universal language.</p>
+
+<p><strong>i want to make software that would somehow immensely improve human lives</strong>, one way or another. — that would help people understand one another better. — that would make it easier to learn and think. — that would help everyone live a full, interesting life.</p>
+
+<p><strong>i want to make software that works in your interests</strong>. that cares about its outcome, about the way it influences you as a person. that is very self-aware of the level of responsibility here, of all the potential risks. so it takes the time. it’s working for you.</p>
+
+<p><strong>i want to make software that helps realize the human potential</strong> — and that also unlocks all the technology’s potential. there’s so many, and so much of it is still not used at all. there’s no novelty in software; it’s all boring and stuck and there were no new ideas for a decade.</p>
+
+<p><strong>i want to make software that looks and feels like helpful reliable objects of daily lives do.</strong> like a toothbrush, like a knife, like a chair. predictable, familiar, trustworthy. something that you own and have full control over, and can do anything you want with.</p>
+
+<p>i want to make software for hanging out, for learning stuff, for finding people to hang out with, for building communities, for discovering the world better, for growing as a person, for being creative, for self-expression, for having fun, for being silly, for being themselves</p>
+
+<p><strong>i want to make software that people would want to use.</strong></p>
+
+<p>i want to make software that’s beautiful, but not in the Pinterest sense.</p>
+
+<p>i want to make software that has just 1 button.</p>
+
+<p><strong>then i want to make software that has 0 buttons.</strong></p>
+
+<p>i want to make software together with you.</p>
+
+<p><strong>i want to make software that would set you free</strong></p>]]></content><author><name></name></author><summary type="html"><![CDATA[some kind of a manifesto for better tech future]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://eugenekudashev.com/img/blog/i want to make software that feels like magic.png" /><media:content medium="image" url="https://eugenekudashev.com/img/blog/i want to make software that feels like magic.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
