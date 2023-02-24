@@ -21,6 +21,11 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+<script type="text/javascript" src="//unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js"></script>
+<link href="//unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css" rel="stylesheet" />
+
+
 <script type="text/javascript">
 
 $(document).ready( function() {
@@ -104,19 +109,49 @@ body {
 	background: #222;
 	color: #fff;
 }
+
+body {
+              margin: 0;
+              padding: 0;
+            }
+
+            #map {
+              position: absolute;
+              top: 0;
+              bottom: 0;
+              width: 100%;
+            }
 </style>
 
 </head>
 
 <body>
 
-<h1>to visit this website, you must be in Neukölln -- but not necessarily in a goblin mode</h1>
+<div id="map"></div>
+
+<script type="text/javascript">
+ var map = new maplibregl.Map({
+   container: 'map',
+   style: 'https://tiles.stadiamaps.com/styles/alidade_smooth.json',  // Style URL; see our documentation for more options
+   center: [13.4573529, 52.4592357],  // Initial focus coordinate
+   zoom: 14
+ });
+
+ // MapLibre GL JS does not handle RTL text by default, so we recommend adding this dependency to fully support RTL rendering. 
+ maplibregl.setRTLTextPlugin('https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.2.1/mapbox-gl-rtl-text.js');
+
+ // Add zoom and rotation controls to the map.
+ map.addControl(new maplibregl.NavigationControl());
+</script>
+
+<!-- <h1>to visit this website, you must be in Neukölln -- but not necessarily in a goblin mode</h1>
 
 <button id="find-me">share my location</button><br />
 
 <p>we need you to share your device location with this website so that we can check whether you're in Neukölln or not -- and if you're not, we'll have to tell to you the (in)famous HEUTE LEIDER NICHT. please help keeping this website very exclusive & support your localhost artist</p>
 
-<p id="status"></p>
+<p id="status"></p> -->
+
 <!-- <a id="map-link" target="_blank"></a> -->
 
 
