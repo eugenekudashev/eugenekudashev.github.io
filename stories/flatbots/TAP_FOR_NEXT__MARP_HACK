@@ -1,0 +1,18 @@
+
+
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<script>$(".bespoke-marp-osc").hide() </script>
+<script>$("body").click( function(event){ 
+  if(event.clientX / window.innerWidth < 0.25) {
+    // go back
+    $('button[data-bespoke-marp-osc="prev"]').click()
+  }
+  else {
+    if ( event.target.innerText != 'Next slide' && event.target.innerText != 'Previous slide' ) $('button[data-bespoke-marp-osc="next"]').click()
+  }
+    
+    // console.log(event.target.innerText)
+  } )</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jetbrains-mono@1.0.6/css/jetbrains-mono.min.css">
+
+
