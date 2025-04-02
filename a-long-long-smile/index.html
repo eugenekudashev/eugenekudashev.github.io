@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smile Challenge</title>
+  <style>
+    body {
+      font-family: Times New Roman, Times, serif;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+      background-color: #f0f0f0;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    #videoContainer {
+      position: relative;
+      width: 100%;
+      max-width: 640px;
+      margin: 0 auto;
+      border: 3px solid #ccc;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+    }
+    #video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scaleX(-1); /* Mirror the video */
+    }
+    #overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .status-indicator {
+      margin: 20px 0;
+      padding: 10px;
+      border-radius: 5px;
+      font-weight: bold;
+      font-size: 24px;
+    }
+    .not-smiling {
+      background-color: #ffdddd;
+      color: #ff0000;
+    }
+    .smiling {
+      background-color: #ddffdd;
+      color: #008800;
+    }
+    .button {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .button:disabled {
+      background-color: #cccccc;
+      cursor: not-allowed;
+    }
+    #stats {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+    #loading {
+      margin-top: 20px;
+      color: #666;
+    }
+    .browser-warning {
+      background-color: #fffacd;
+      color: #8b4513;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      display: none;
+    }
+
+    pre {
+  white-space: pre-wrap; /* Ensures the text will wrap */
+  word-wrap: break-word; /* Breaks long words to fit within the container */
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>let’s smile together while the world burns :)</h1>
+    <h2 style="font-weight:normal;">turn on your camera & smile for as long as you can</h2>
+    <p><b>IS PRIVACY COOL? YES IT IS</b></p>
+<pre>
+> for this game/experiment to work, you'll need to let this website access your camera
+> i understand you might be skeptical about letting random websites access your camera
+> promise: none of your video data is recorded or transferred anywhere
+> all the fun stuff is hapening on your device
+</pre>
+    <!-- <p>How long can you maintain your smile?</p> -->
+    
+    <div id="browserWarning" class="browser-warning">
+      <!-- It appears your browser may not fully support camera access. For the best experience, please use Chrome, Safari 11+, or Firefox 52+. -->
+    </div>
+    
+    <div id="videoContainer">
+      <video id="video" playsinline autoplay muted></video>
+      <canvas id="overlay"></canvas>
+    </div>
+    
+    <!-- <div id="statusIndicator" class="status-indicator not-smiling">Not smiling</div> -->
+    <div class="status-indicator" id="statusIndicator"></div>
+
+    
+    <div>
+      <button id="startButton" class="button">ok let's do it!!!!!</button>
+      <!-- <a href="#" id="saveImageButton">save image</a> -->
+    </div>
+    
+    <div id="stats">
+      <div id="currentTime">current time: 0.0 seconds</div>
+      <div id="bestTime">your best time: 0.0 seconds</div>
+
+      <div class="score-form-container">
+        <p>you can send your score to the world... if you like</p>
+        <form id="score-form">
+          <div class="form-group">
+            <label for="player-name">name:</label>
+            <input type="text" id="player-name" maxlength="20" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="player-score">your best score:</label>
+            <input type="number" id="player-score" min="0" required readonly>
+          </div>
+          
+          <button type="submit" id="submit-score-btn">send send send</button>
+        </form>
+      </div>
+
+    </div>
+    
+    <div id="loading"></div>
+
+    <div class="leaderboard-header">
+      <h2>the longest smiles
+        <!-- <button id="refresh-leaderboard" title="Refresh">↻</button> -->
+      </h2>
+    </div>
+    
+    <div id="status-message"></div>
+    
+    <div id="leaderboard-container" class="leaderboard-container">
+      <p>Loading leaderboard...</p>
+    </div>
+    
+    <p>
+    this is a little silly game made by <a href="https://eugenekudashev.github.io/" target="blank">eugene kudashev</a>, your favourite localhost artist
+    </p>
+
+  </div>
+
+  <!-- Load face-api.js from local file -->
+  <script src="face-api.min.js"></script>
+  
+  <!-- jQuery from CDN -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <!-- Your JavaScript file -->
+  <script src="leaderboard-frontend.js"></script>
+
+  <script>
+    // DOM elements
+    const video = document.getElementById('video');
+    const overlay = document.getElementById('overlay');
+    const statusIndicator = document.getElementById('statusIndicator');
+    const startButton = document.getElementById('startButton');
+    const saveImageButton = document.getElementById('saveImageButton');
+    const currentTimeEl = document.getElementById('currentTime');
+    const bestTimeEl = document.getElementById('bestTime');
+    const loadingEl = document.getElementById('loading');
+    const browserWarningEl = document.getElementById('browserWarning');
+    
+    // Canvas context for drawing
+    const ctx = overlay.getContext('2d');
+    
+    // Smile detection state
+    let isSmiling = false;
+    let lastSmileState = false;
+    let smileStartTime = 0;
+    let currentSmileDuration = 0;
+    let bestSmileDuration = 0;
+    let isRunning = false;
+    let animationId = null;
+    let isInitialized = false;
+    
+    // Buffer for smoothing smile detection
+    const smileBuffer = [false, false, false, false, false];
+    const requiredConsensus = 3;
+    
+    // Check for browser compatibility
+    function checkBrowserCompatibility() {
+      // Check if getUserMedia is supported in some form
+      if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+        // Try older versions
+        navigator.mediaDevices = {};
+        
+        navigator.mediaDevices.getUserMedia = function(constraints) {
+          const getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+          
+          if (!getUserMedia) {
+            browserWarningEl.style.display = 'block';
+            return Promise.reject(new Error('getUserMedia is not supported in this browser'));
+          }
+          
+          // Wrap the old navigator.getUserMedia API in a Promise
+          return new Promise(function(resolve, reject) {
+            getUserMedia.call(navigator, constraints, resolve, reject);
+          });
+        };
+      }
+      
+      // Additional checks for iOS
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+      if (isIOS) {
+        browserWarningEl.style.display = 'block';
+      }
+    }
+    
+    // Initialize face-api.js
+    async function initFaceAPI() {
+      loadingEl.textContent = "Loading face detection models...";
+      
+      try {
+        // Set the models path to our local directory
+        const MODEL_URL = './models';
+        
+        // Load required models
+        await faceapi.nets.tinyFaceDetector.loadFromUri(MODEL_URL);
+        loadingEl.textContent = "Loaded face detector model...";
+        
+        await faceapi.nets.faceLandmark68Net.loadFromUri(MODEL_URL);
+        loadingEl.textContent = "Loaded landmark detection model...";
+        
+        await faceapi.nets.faceExpressionNet.loadFromUri(MODEL_URL);
+        loadingEl.textContent = "All models loaded successfully!";
+        
+        // Start the challenge automatically after models are loaded
+        startChallenge();
+        
+      } catch (error) {
+        console.error('Error loading models:', error);
+        loadingEl.textContent = "Error loading models. Please check console for details.";
+        startButton.disabled = false;
+        startButton.textContent = "Retry";
+      }
+    }
+    
+    // Start webcam
+    async function startWebcam() {
+      try {
+        startButton.disabled = true;
+        startButton.textContent = "Loading...";
+        
+        // Configure constraints specifically for mobile
+        const constraints = {
+          audio: false,
+          video: {
+            facingMode: 'user', // Use front camera
+            width: { ideal: 640 },
+            height: { ideal: 480 }
+          }
+        };
+        
+        // On iOS Safari, we need to ensure the video is muted
+        video.muted = true;
+        video.setAttribute('playsinline', true);  // Needed for iOS
+        
+        try {
+          // Request camera access
+          const stream = await navigator.mediaDevices.getUserMedia(constraints);
+          
+          // Set video source
+          video.srcObject = stream;
+          
+          // Manually start playing (needed for some browsers)
+          try {
+            await video.play();
+          } catch (playError) {
+            console.warn("Could not autoplay video:", playError);
+            // Add a play button if needed
+            startButton.textContent = "Tap to start video";
+            startButton.disabled = false;
+            startButton.onclick = function() {
+              video.play().then(() => {
+                // Continue with initialization
+                setupVideoAndCanvas();
+              }).catch(e => {
+                alert("Could not start video. Please check your browser settings and permissions.");
+              });
+            };
+            return;
+          }
+          
+          setupVideoAndCanvas();
+          
+        } catch (streamError) {
+          throw streamError;
+        }
+        
+      } catch (error) {
+        console.error('Error accessing webcam:', error);
+        if (error.name === 'NotAllowedError') {
+          alert('Camera access was denied. Please allow camera access in your browser settings and try again.');
+        } else if (error.name === 'NotFoundError') {
+          alert('No camera found on your device.');
+        } else if (error.name === 'NotSupportedError') {
+          alert('Your browser does not support accessing the camera. Please try a different browser.');
+        } else {
+          alert('Cannot access webcam: ' + (error.message || 'Unknown error'));
+        }
+        startButton.disabled = false;
+        startButton.textContent = "Retry";
+      }
+    }
+    
+    // Set up video and canvas once video is playing
+    function setupVideoAndCanvas() {
+      // Function to handle video being ready
+      const handleVideoReady = () => {
+        // Set initial canvas dimensions
+        resizeCanvasToVideo();
+        
+        // Initialize face detection
+        initFaceAPI();
+      };
+      
+      // Check if video is already playing and has dimensions
+      if (video.readyState >= 2) {  // HAVE_CURRENT_DATA or higher
+        handleVideoReady();
+      } else {
+        // Wait for video metadata to load
+        video.addEventListener('loadeddata', handleVideoReady, { once: true });
+      }
+    }
+    
+    // Resize canvas to match video dimensions
+    function resizeCanvasToVideo() {
+      if (video.videoWidth && video.videoHeight) {
+        overlay.width = video.videoWidth;
+        overlay.height = video.videoHeight;
+      } else {
+        // Fallback if video dimensions are not available
+        overlay.width = video.clientWidth;
+        overlay.height = video.clientHeight;
+      }
+    }
+    
+    // Update smile buffer to smooth detection
+    function updateSmileBuffer(newSmileValue) {
+      smileBuffer.shift(); // Remove oldest reading
+      smileBuffer.push(newSmileValue); // Add newest reading
+      
+      // Count true values in buffer
+      const trueCount = smileBuffer.filter(Boolean).length;
+      
+      // Only change smile state if we have consistent readings
+      return trueCount >= requiredConsensus;
+    }
+    
+    // Process smile detection from face-api.js data
+    function processSmileDetection(detection) {
+      if (!detection || !detection.expressions) {
+        return false;
+      }
+      
+      // Get smile probability from the expressions
+      const smileProbability = detection.expressions.happy;
+      
+      // Consider it a smile if probability is above threshold
+      const rawSmileState = smileProbability > 0.7; // Adjust threshold as needed
+      
+      // Apply smoothing
+      return updateSmileBuffer(rawSmileState);
+    }
+    
+    // Main detection loop
+    async function detectSmile() {
+      if (!isRunning) return;
+      
+      try {
+        const detections = await faceapi.detectAllFaces(
+          video, 
+          new faceapi.TinyFaceDetectorOptions()
+        )
+        .withFaceLandmarks()
+        .withFaceExpressions();
+        
+        // Clear canvas
+        ctx.clearRect(0, 0, overlay.width, overlay.height);
+        
+        if (detections.length > 0) {
+          // Process the first face detected
+          isSmiling = processSmileDetection(detections[0]);
+          
+          // Draw face landmarks
+          const resizedDetections = faceapi.resizeResults(detections, {
+            width: overlay.width,
+            height: overlay.height
+          });
+          
+          faceapi.draw.drawFaceLandmarks(overlay, resizedDetections);
+
+          
+          
+          // Check for state changes
+          if (isSmiling && !lastSmileState) {
+            onSmileStarted();
+          } else if (!isSmiling && lastSmileState) {
+            onSmileStopped();
+          }
+          
+          // Update smile duration if currently smiling
+          if (isSmiling) {
+            currentSmileDuration = (Date.now() - smileStartTime) / 1000;
+            currentTimeEl.textContent = `Current time: ${currentSmileDuration.toFixed(1)} seconds`;
+          }
+          
+          lastSmileState = isSmiling;
+        } else {
+          // No face detected
+          if (lastSmileState) {
+            onSmileStopped();
+          }
+          lastSmileState = false;
+          isSmiling = false;
+        }
+        
+        // Update UI
+        updateUI();
+        
+        // Continue detection loop
+        animationId = requestAnimationFrame(detectSmile);
+      } catch (error) {
+        console.error('Error in smile detection:', error);
+        animationId = requestAnimationFrame(detectSmile);
+      }
+    }
+    
+    // Event handlers for smile state changes
+    function onSmileStarted() {
+      console.log('Smile detected! Timer starting.');
+      smileStartTime = Date.now();
+      statusIndicator.textContent = 'Smiling!';
+      statusIndicator.classList.remove('not-smiling');
+      statusIndicator.classList.add('smiling');
+    }
+    
+    function onSmileStopped() {
+      console.log('Smile ended after ' + currentSmileDuration.toFixed(1) + ' seconds');
+      
+      // Update best time if current duration is better
+      if (currentSmileDuration > bestSmileDuration) {
+        bestSmileDuration = currentSmileDuration;
+        bestTimeEl.textContent = `Your best time: ${bestSmileDuration.toFixed(1)} seconds`;
+        $("#player-score").val(bestSmileDuration.toFixed(1))
+      }
+      
+      // Reset current duration
+      currentSmileDuration = 0;
+      currentTimeEl.textContent = `Current time: 0.0 seconds`;
+      
+      // Update UI
+      statusIndicator.textContent = 'Not smiling';
+      statusIndicator.classList.remove('smiling');
+      statusIndicator.classList.add('not-smiling');
+    }
+    
+    // Update UI based on current state
+    function updateUI() {
+      if (isSmiling) {
+        statusIndicator.textContent = `Smiling! ${currentSmileDuration.toFixed(1)}s`;
+        statusIndicator.classList.remove('not-smiling');
+        statusIndicator.classList.add('smiling');
+      } else {
+        statusIndicator.textContent = 'Not smiling';
+        statusIndicator.classList.remove('smiling');
+        statusIndicator.classList.add('not-smiling');
+      }
+    }
+    
+    // Start challenge button handler
+    function startChallenge() {
+      isRunning = true;
+      startButton.textContent = 'Stop';
+      startButton.disabled = false;
+      startButton.onclick = stopChallenge;
+      
+      // Reset values
+      currentSmileDuration = 0;
+      smileStartTime = 0;
+      lastSmileState = false;
+      isSmiling = false;
+      
+      isInitialized = true;
+      
+      // Start detection loop
+      detectSmile();
+    }
+    
+    // Stop challenge button handler
+    function stopChallenge() {
+      isRunning = false;
+      if (animationId) {
+        cancelAnimationFrame(animationId);
+        animationId = null;
+      }
+      
+      startButton.textContent = 'Start';
+      startButton.onclick = function() {
+        // If we're already initialized, just start the challenge again
+        // Otherwise, we need to set up the webcam and models first
+        if (isInitialized) {
+          startChallenge();
+        } else {
+          startWebcam();
+        }
+      };
+      
+      // Clear canvas
+      ctx.clearRect(0, 0, overlay.width, overlay.height);
+      
+      // Reset UI
+      statusIndicator.textContent = 'Not smiling';
+      statusIndicator.classList.remove('smiling');
+      statusIndicator.classList.add('not-smiling');
+      currentTimeEl.textContent = `Current time: 0.0 seconds`;
+    }
+    
+    // Combined start function for initial button click
+    function handleStart() {
+      // First time setup
+      if (!isInitialized) {
+        startWebcam();
+      } else {
+        // Already initialized, just toggle between start/stop
+        if (isRunning) {
+          stopChallenge();
+        } else {
+          startChallenge();
+        }
+      }
+    }
+
+// Now export the canvas as an image
+          function saveCanvasAsImage(canvas) {
+            // Convert the canvas to a base64 image (PNG format)
+            const imageUrl = canvas.toDataURL("image/png");
+
+            // Create a link to download the image
+            const link = document.createElement('a');
+            link.href = imageUrl;
+            link.download = 'face_landmarks_image.png'; // The filename for the saved image
+            link.click(); // Trigger the download
+          }
+
+    function handleSaveImage() {
+      // Call the function to save the image
+          saveCanvasAsImage(overlay);
+    }
+    
+    // Run browser compatibility check on page load
+    // checkBrowserCompatibility();
+    
+    // Set up event listener for the single button
+    startButton.addEventListener('click', handleStart);
+
+    saveImageButton.addEventListener('click', handleSaveImage);
+    
+    // Initial UI state
+    loadingEl.textContent = "Tap 'Start' to begin the challenge";
+  </script>
+</body>
+</html>
