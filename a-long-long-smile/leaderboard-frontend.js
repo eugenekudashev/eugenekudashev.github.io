@@ -1,7 +1,7 @@
 // Leaderboard frontend logic
 $(document).ready(function () {
   // Configuration
-  const API_URL = "http://192.71.151.169/api"; // Update with your actual API URL
+  const API_URL = "https://a-long-long-smile.onrender.com/api"; // Update with your actual API URL
 
   // Function to load and display leaderboard scores
   function loadLeaderboard() {
