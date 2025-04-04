@@ -6,7 +6,7 @@ $(document).ready(function () {
   // Function to load and display leaderboard scores
   function loadLeaderboard() {
     $.ajax({
-      url: `${API_URL}/scores?limit=10`,
+      url: `${API_URL}/scores?limit=100`,
       method: "GET",
       dataType: "json",
       success: function (data) {
