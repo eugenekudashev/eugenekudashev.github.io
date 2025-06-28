@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Not A Bad Idea – Eugene</title>
+  
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Arial&display=swap');
+
+    pre {
+      font-size: 150%;
+      white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 66%;
+  overflow-x: auto;
+    }
+
+    :root {
+      --bg: #fff;
+      --text: #000;
+      --card-bg: #f6f6f6;
+      --font-sans: Arial, sans-serif;
+      --font-serif: 'Times New Roman', Times, serif;
+    }
+
+    .hover-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: auto;
+  max-width: 60vw;
+  max-height: 80vh;
+  z-index: 999;
+  display: none;
+  pointer-events: none;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  transition: opacity 0.8s ease;
+}
+
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--text);
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .header-logo-group {
+      display: flex;
+      flex-direction: column;
+      flex: 1 1 100%;
+      margin-bottom: 20px;
+    }
+
+    .logo-line {
+      display: flex;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .logo-line h1 {
+      font-size: 36px;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .logo-line p {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      max-width: 350px;
+    }
+
+    .header-text {
+      flex: 1 1 600px;
+    }
+
+    .header-logo-group strong {
+      display: block;
+      font-weight: bold;
+      margin-top: 10px;
+      font-size: 20px;
+    }
+
+    .intro {
+      margin-left: 2em;
+      margin-bottom: 4em;
+      margin-top: 2em;
+    }
+
+    .intro p {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      margin: 10px 0;
+    }
+
+    .photo {
+      flex: 0 0 300px;
+    }
+
+    .photo img {
+      width: 100%;
+      border-radius: 4px;
+    }
+
+    .section-title {
+      font-size: 36px;
+      font-weight: bold;
+      /*margin: 30px 0 10px;*/
+    }
+
+    .columns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin-top: 20px;
+      font-family: var(--font-serif);
+    }
+
+    .column {
+      flex: 1 1 240px;
+    }
+
+    .column h3 {
+      text-decoration: underline;
+      font-size: 24px;
+    }
+
+    .column ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .column li {
+      margin: 6px 0;
+      font-size: 24px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: #fff;
+  border: 2px solid black;
+  padding: 16px;
+  border-radius: 6px;
+  font-size: 1.5rem; /* or use rem units */
+  transition: background 0.1s, color 0.1s;
+}
+
+
+    .card:hover {
+      background: #000;
+      color: #fff;
+    }
+
+    .card-title {
+      font-size: 24px;
+      font-family: var(--font-sans) !important;
+      font-weight: bold;
+    }
+
+    .card p {
+      font-family: var(--font-serif);
+      margin: 6px 0;
+    }
+
+    .card strong {
+  margin-top: auto;
+  display: block;
+  font-size: 1rem;
+  color: #555;
+  font-family: var(--font-sans);
+}
+
+    @media (max-width: 600px) {
+      .logo-line {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+        gap: 0.5rem;
+      }
+
+      .grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      }
+
+      .header {
+        flex-direction: column;
+        align-items: left;
+        text-align: left;
+      }
+
+      .photo {
+        width: 150px;
+      }
+
+      .columns {
+        flex-direction: column;
+      }
+
+      .logo-line {
+        flex-direction: column;
+        align-items: left;
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header-logo-group">
+      <div class="logo-line">
+        <h1 style="border-bottom: 8px solid black;">NOT A BAD IDEA</h1>
+        <p>is a hopefully fun & memorable name<br/>that you will chuckle at and remember</p>
+      </div>
+      <strong>serious & silly concepts<br/>for all kinds of screens</strong>
+    </div>
+
+    <div class="header">
+      <div class="header-text">
+        <div class="intro">
+          <p>hi! i’m eugene,</p>
+          <p>i invent and make cool interactive things for the internet,</p>
+          <p>i research new technology & explore its possibilities,</p>
+          <p>and come up with unconventional ways to tell stories online</p>
+        </div>
+        <div class="section-title">I’M LOOKING FOR WORK!</div>
+        <div class="section-title">FREELANCE / CONSULTING / FULL-TIME</div><div class="section-title">I CAN DO A WHOLE LOT OF THINGS</div><div class="section-title">IN BERLIN AND ELSEWHERE</div>
+      </div>
+      <div class="photo">
+        <img src="/portfolio/selfie.png" alt="Eugene">
+      </div>
+    </div>
+
+    <div class="columns">
+      <div class="column">
+        <h3>product r&d</h3>
+        <ul>
+          <li>product discovery</li>
+          <li>design research</li>
+          <li>proof of concepts</li>
+          <li>prototypes</li>
+          <li>fun with technology</li>
+        </ul>
+      </div>
+      <div class="column">
+        <h3>creative concepts</h3>
+        <ul>
+          <li>creative strategy</li>
+          <li>clever branding</li>
+          <li>anti-content marketing</li>
+          <li>storytelling</li>
+          <li>very good ideas</li>
+          <li>meme factory</li>
+        </ul>
+      </div>
+      <div class="column">
+        <h3>strategy, research, words</h3>
+        <ul>
+          <li>research</li>
+          <li>thinkpieces</li>
+          <li>good tweets</li>
+          <li>culture reports</li>
+          <li>trends analysis</li>
+        </ul>
+      </div>
+    </div>
+
+        <div class="grid">
+      <div class="card">
+        <p class="card-title">idea: an app that makes links longer</p>
+        <p>#1 product of the day on producthunt (don’t ask)</p>
+        <strong>concept, design, code, launch</strong>
+      </div>
+      <a href="/portfolio/podcasts-llm/"><div class="card">
+        <p class="card-title">idea: what if podcasts had subtitles</p>
+        <p>an environment for language learning: using LLM for podcasts discovery, speech-to-text, interactive explainers, and personalized tests</p>
+        <strong>concept, research</strong>
+      </div></a>
+      <div class="card">
+        <p class="card-title">idea: what if you put fog of war on the real-world map</p>
+        <p>a mental health app that gamifies walking and gives you a personal map on the world</p>
+        <strong>concept, vision, research, branding, pitch deck, website, launch, words</strong>
+      </div>
+      <div class="card">
+        <p class="card-title">idea: record a voice note, listen to voice notes recorded by strangers</p>
+        <p>a telegram bot that accidentally became an anonymous voice-based social network for thousands of people</p>
+        <strong>concept, code, launch</strong>
+      </div>
+      <div class="card">
+        <p class="card-title">idea: a website that turns smiling into a game</p>
+        <p>smile for as long as you can and put your high score on the leaderboard</p>
+        <strong>concept, code, launch</strong>
+      </div>
+      <div class="card">
+        <p class="card-title">idea: an app like tinder but you can’t message even after you match</p>
+        <p>part an experiment, part social commentary; point is, modern dating is broken</p>
+        <strong>concept, code, launch</strong>
+      </div>
+      <div class="card">
+        <p class="card-title">idea: a web browser but you can’t open more than one tab</p>
+        <p>an experiment in trying to reduce distraction</p>
+        <strong>concept, code</strong>
+      </div>
+      <div class="card">
+        <p class="card-title">idea: a voice interface for creating visual storytelling</p>
+        <p>can you create some decently looking visuals without touching your keyboard?</p>
+        <strong>concept, code</strong>
+      </div>
+      <div class="card">
+        <p class="card-title">idea: landing pages but actually good</p>
+        <p>an alternative approach to making a startup landing page, or what is respectful marketing with style and taste</p>
+        <strong>words</strong>
+      </div>
+      <div class="card">
+        <p class="card-title">idea: money commercial</p>
+        <p>a parody video that really makes you think</p>
+        <strong>words, editing</strong>
+      </div>
+      <div class="card">
+        <p class="card-title">idea: anti-content marketing</p>
+        <p>is it possible to refuse to pressure to put out meaningless “content” and produce valuable artifacts instead?</p>
+        <strong>words</strong>
+      </div>
+      <div class="card">
+        <p class="card-title">idea: let’s work together</p>
+        <p>tell me about a problem you need to solve and i’ll offer some ideas</p>
+        <strong>send me an email!</strong>
+      </div>
+    </div>
+  </div>
+  <img id="hover-image" class="hover-image" src="" alt="hover" />
+  <pre>and the pitch can be as simple as this:
+
+BRING SOME COLOUR TO YOUR VERY SERIOUS TECH PRODUCT
+
+important, useful software does not have to be bland and bleak
+
+remember how much fun it was when you walked into Slack for the very very first time?
+
+it felt playful, there were colours, there were sounds, it felt a bit like a game, with immediate responses and all
+
+today you rarely get this feeling from software
+
+making software became so much data-driven that the craft, the design is replaced with endless optimization and efficiency and total lack of emotion
+
+software is bland, the way people sell software is bland, everything is mediocre and no one is happy
+
+if you agree with this premise so far, back to the pitch:
+
+we are designers, writers, strategists, researchers, and otherwise extremely online guys (1) who are very obsessed with technology and culture
+
+WE CAN HELP YOU SERIOUSLY STAND OUT AMIDST ALL THE AI SLOP
+
+we offer Narrative Therapy throughout your entire customer journey:
+> paid ads: let's write some headlines that make you laugh
+> landing page: let's tell a story, not just follow the sales template
+> onboarding: you have no idea how much you can improve conversion with just a well-designed "first 60 seconds" experience
+> product voice (ux words): how does the product talk to you? let's make sure it's friendly and helpful
+> social media: let's write some good posts
+
+another way to say what we do is: respectful marketing with style and taste
+
+we understand software
+we ask a lot of questions
+we're all former founders
+you are our partner and collaborator
+you care about your brand
+you see the value of standing out
+
+so that's the pitch, more or less
+maybe it's a meaning & branding studio
+
+email me and let's make your software feel personal</pre>
+
+  <script>
+  const hoverImage = document.getElementById("hover-image");
+  const cards = document.querySelectorAll(".card");
+
+  const imageSources = [
+    "/portfolio/img/mmll.png",
+    "/portfolio/img/podcast-llm.png",
+    "/portfolio/img/uma.jpg",
+    "[VOS]",
+    "../a-long-long-smile/thumbnail.png",
+    "[better than tinder]",
+
+  ];
+
+  cards.forEach((card, index) => {
+    card.addEventListener("mouseenter", (e) => {
+      const rect = card.getBoundingClientRect();
+      hoverImage.src = imageSources[index];
+      hoverImage.style.display = "block";
+
+      const imageWidth = 600; // estimated width
+      const padding = 20;
+
+      let left = rect.right + padding;
+      if (left + imageWidth > window.innerWidth) {
+        left = rect.left - imageWidth - padding;
+      }
+
+      hoverImage.style.top = `${window.scrollY + rect.top}px`;
+      hoverImage.style.left = `${Math.max(0, left)}px`;
+    });
+
+    card.addEventListener("mouseleave", () => {
+      hoverImage.style.display = "none";
+    });
+  });
+</script>
+
+
+</body>
+</html>

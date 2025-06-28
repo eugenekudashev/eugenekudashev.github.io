@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simple Column Layout</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Georgia;
+      font-size: 150%;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>idea: what if podcasts had subtitles</h1>
+    <h2>an environment for language learning: using LLM for podcasts discovery, speech-to-text, interactive explainers, and personalized tests</h2>
+    <p>normally a podcast looks something like this:</p>
+    <video controls style="max-width: 50%; height: auto; display: block; margin: 0 auto;">
+      <source src="/portfolio/podcasts-llm/no_subs_corrected_audio.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <p>just audio. nothing else. which makes them so great</p>
+    <p>but not so great if you're learning a foreign language and didn't get that one word!</p>
+    <p>which brings us to... <u>what if podcasts had subtitles?</u></p>
+    <video controls style="max-width: 50%; height: auto; display: block; margin: 0 auto;">
+      <source src="/portfolio/podcasts-llm/subs_corrected_audio.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <p>i'm still learning German (it's a lifelong quest, Mark Twain was right), so i put together this proof of concept — just subtitles over a podcast trailer — and it felt incredibly satisfying: i could read every word and see what i missed</p>
+    <p>(for anyone interested in tech side: i just ran the podcast audio file through whisper.cpp -- locally, on my laptop -- and got the SRT file with subtitles that i then could plug in any media player, IINA in my case)</p>
+    <p>this is already great, but i immediately wanted more</p>
+    <p>shouldn't subtitles be clickable and interactive so that i could look stuff up right here?</p>
+    <img style="max-width: 70%; height: auto; display: block; margin: 0 auto;" src="/portfolio/podcasts-llm/word_lookup.png">
+    <p>ok, that's good, but what if i need more than just to look up a word in a dictionary? what i want more usage examples? what if i don't understand an entire phrase? what i'm weak and need a translation?</p>
+    <p>so this obviously calls for LLMs, because this is one area where they should really excel. let's see</p>
+    <p>first of all, let's see the average output of an average LLM to an average question:</p>
+    <img style="max-width: 70%; height: auto; display: block; margin: 0 auto; border: 2px solid black;" src="/portfolio/podcasts-llm/gedanken.png">
+    <p>this is honestly very useful. but now, obviously, all of this needs to exist in a single context: the podcast player with subtitles and the LLM wisdom</p>
+    <p>i started sketching out something like this:</p>
+    <img style="max-width: 70%; height: auto; display: block; margin: 0 auto; border: 2px solid black;" src="/portfolio/podcasts-llm/idiom.png">
+    <p>or, with some annotations for clarity:</p>
+    <img style="max-width: 70%; height: auto; display: block; margin: 0 auto; border: 2px solid black;" src="/portfolio/podcasts-llm/explainer.png">
+    <p>the idea is obvious: to bring everything together, single context, one environment -- to remove the need to switch to chatgpt and copy-paste things</p>
+    <img style="max-width: 70%; height: auto; display: block; margin: 0 auto; border: 2px solid black;" src="/portfolio/podcasts-llm/screens.png">
+    <p>why podcasts? they're the best when it comes to "i want to listen to real unscripted natural speech", plus you can find things that are interesting specifically for you, be it true crime or Ancient Rome or crypto (i'm working through the 6-part investigation which tracks down the author of the famous Döner Kebab logo)</p>
+    <p>LLMs can be of great help with discovery, too, by the way: tell the bot your favourite podcasts in English and it will find you similar ones in your target language:</p>
+    <img style="max-width: 70%; height: auto; display: block; margin: 0 auto; border: 2px solid black;" src="/portfolio/podcasts-llm/discovery.png">
+    <p>and you can easily see how you can ask the LLM to test you on literally everything you looked up and make up all kinds of assignments, etc.</p>
+  </div>
+</body>
+</html>

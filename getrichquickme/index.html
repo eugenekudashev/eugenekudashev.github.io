@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <base href="./">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- <link rel="icon" href="https://glitch.com/favicon.ico" /> -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤑</text></svg>">
+
+    <title>GET RICH QUICK · #crypto #web3 #NFT</title>
+
+    <!-- Meta tags for SEO and social sharing -->
+    <link rel="canonical" href="https://getrichquick.me/" />
+    <meta
+      name="description"
+      content="get as much money as you want in 1 click"
+    />
+    <meta name="robots" content="index,follow" />
+    <meta property="og:title" content="GET RICH QUICK · #crypto #web3 #NFT" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://getrichquick.me/" />
+    <meta
+      property="og:description"
+      content="get as much money as you want in 1 click"
+    />
+    <meta
+      property="og:image"
+      content="https://getrichquick.me/assets/social_thumbnails_large_alt.png"
+    />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://getrichquick.me/assets/social_thumbnails_large_alt.png">
+
+
+    <!-- Import the webpage's stylesheet -->
+    <link rel="stylesheet" href="./reset.css" />
+    <link rel="stylesheet" href="./style.css" />
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    <script src="https://unpkg.com/typeit@8.0.7/dist/index.umd.js"></script>
+    <!-- Import the webpage's javascript file -->
+    <script src="./blink.js"></script>
+    <script src="./script.js" defer></script>
+  
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TFPV16SK0E"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-TFPV16SK0E');
+    </script>
+
+  </head>
+  <body>
+    <div class="red-circle"></div>
+    <div class="modal hidden">
+      <h2>
+        do you want to get rich with some nice music, or in silence?
+      </h2>
+      <a href="#"><h3 class="modal-play">play music</h3></a>
+      <br/>
+      <a href="#"><h3 class="modal-nah">nah</h3></a>
+    </div>
+    
+    <div id="intro" class="invert">
+      <h1 style="font-size: 1000%; margin: 0; padding: 0; line-height: 0.95;">
+        
+      </h1>
+      <h2>
+        
+      </h2>
+      <p style="position: fixed; bottom: 1px; font-size: 200%;">
+        
+      </p>
+    </div>
+    
+    <div id="slide0">
+      <h1>
+        get rich quick
+      </h1>
+      <h2>
+        get as much money as you want, now, FREE
+      </h2>
+      <p>
+        choose how much
+      </p>
+      <div class="range-wrap">
+        <div class="range-value" id="rangeV"></div>
+        <input id="range" type="range" min="0.01" max="100" value="23" step="0.01">
+      </div>
+      <br/><br/><br/>
+      <span class="getgetget">
+        get your <span class="how-much">23</span>ETH now
+      </span>
+      <p>
+        (that's $<span id="eth-to-usd">92000</span>)
+      </p>
+      <br/><br/><br/><br/>
+      <p><span id="prize-pool">236790</span> free ETH left</p>
+      <p><span id="users-online">1147</span> people online</p>
+    </div>
+    
+    <div id="slide1">
+      <h1>
+        what's your ETH wallet?
+      </h1>
+      <h2>
+        (<code>mywallet.eth</code> will also work)
+      </h2>
+      <input id="wallet-addr" type="text" size="80" placeholder="type your address: it looks like 0x574a4B31Cf9822c526589DC13Fd279f4ab4F1fB1">
+      <button id="no-wallet">i don't have a wallet</button>
+      <br/><br/><br/>
+      <span class="getgetget">
+        get your <span class="how-much">23</span>ETH now
+      </span>
+    </div>
+    
+    <div id="slide2">
+      <h1>
+        your FREE <span class="how-much-red">5.33</span> ETH are almost there
+      </h1>
+      <h2>
+        you’ll just have to cover the gas fees
+      </h2>
+      <p>
+        current fees: <span class="current_fee_eth">0.02</span> ETH ($<span class="current_fee_usd">79,80</span>)
+      </p>
+      <span class="getgetget">
+        get your <span class="how-much">23</span>ETH now
+      </span>
+    </div>
+    
+    <div id="slide3">
+      <h1>
+        your FREE <span class="how-much-red">5.33</span> ETH are almost there
+      </h1>
+      <h2>
+        just send <span class="current_fee_eth">0.02</span> ETH gas fee to this address
+      </h2>
+      <p class="addr">
+        0xb39653Be7bbeCf976b717aAaFa042D7bd69787b4
+      </p>
+      <br/>
+      <a href="#" id="metamask">connect metamask wallet</a> && then
+      <a href="#" id="payme">pay with metamask</a>
+      <br/><br/>
+      ———
+      <br/><br/>
+      or pay via QR code:
+      <br/>
+      <img width="100" src="./assets/eth-addr-new.png">
+      <p>
+        <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+        <i>waiting for payment...</i>
+        <span id="countdown"><span id="mm">01</span>:<span id="ss">00</span></span>
+      </p>
+    
+      <span class="getgetget disabled">
+        get your <span class="how-much">23</span>ETH now
+      </span>
+    
+    </div>
+
+  <div id="slide4" class="invert">
+    <h1>
+      so, how did it feel?
+    </h1>
+    <h2>
+      did you believe it for a split second? did you actually expect something to happen? when the button lit up, did you..?
+    </h2>
+    <p>
+      yeah, uhm... so, this was obviously a scam, like so many other crypto scams. did i say scam? i meant satire. this is satire. i'm making fun of crypto/web3 gold rush. i think it's extremely stupid. it's a pyramid, a scam, a Ponzi scheme.
+
+    <p>wait, what? you paid your actual money for real? well, too bad. too bad crypto is decentralized, there's no authority to report me to, there's no one to get the money back from. yeah but it's cool. the future. web3. oh yeah. oh right. oh boi.
+    </p>
+    <p>
+      well i guess we can say you paid for the excitement? for those brief moments that you felt something? for the dopamine rush of OH MY GOD I CAN'T BELIEVE THIS I'LL BE RICH? i hope it made you feel like you didn't in a long time. so, consider this an experience that you got, and a story that you can tell. it's a nice story to tell at a party. i'm sure it's worth it.
+    </p>
+    <p>
+      it was nice meeting you, even if briefly. good luck!
+    </p>
+    <p>
+      * * *
+    </p>
+    <p>
+      conceived, created, produced, written, designed, programmed, fact-checked, edited, creativedirectored and joked by <span style="font-weight:bold;"><a href="http://eugenekudashev.com" target="_blank">eugene kudashev</a></span>
+    </p>
+    <p>
+      [dramatic music intensifies] by <b><a target="_blank" href="https://www.premiumbeat.com/royalty-free-tracks/catch-the-bullet">chris phaze</a></b>
+    </p>
+    <p>
+      Yakety Sax (aka "benny hill song") by <b><a href="https://en.wikipedia.org/wiki/Yakety_Sax" target="_blank">James Q. "Spider" Rich and Boots Randolph</a></b>
+    </p>
+    <p>
+      * * *
+    </p>
+    <h1>
+      support your local(host) web artist
+    </h1>
+    <h2>
+      this website is an artwork, and this artwork is for sale. send me your offer <a href="mailto:eugenekudashev@gmail.com">by email</a>
+    </h2>
+    <p>there would be no NFTs involved — i don't feel like burning the forests</p>
+    <p>
+      * * *
+    </p>
+    <h1>follow my work</h1>
+    <h2>
+      there's more serious (web) art and silly absurd comedy to come
+    </h2>
+    <p><a href="https://twitter.com/eugenekudashev" target="_blank">twitter</a>, <a href="https://www.instagram.com/eugenekudashev/" target="_blank">instagram</a>, <a href="https://eugenekudashev.com" target="_blank">personal website</a></p>
+    <p>
+      * * *
+    </p>
+    <h1>press inquiries</h1>
+    <p>send me an <a href="mailto:eugenekudashev@gmail.com">email</a></p>
+    <p>
+      * * *
+    </p>
+    <h1>further reading</h1>
+    <p><a href="https://tante.cc/2021/12/17/the-third-web/" target="_blank">"The Third Web"</a> by Tante (an independent sociotechnologist) — an objective critical analysis of everything that's wrong with web3 & crypto</p>
+    <p><a href="https://moxie.org/2022/01/07/web3-first-impressions.html" target="_blank">"My first impressions of web3"</a> by Moxie Marlinspike (founder of Signal) — an excellent in-depth technical breakdown of what web3 is and isn't, showing that it's all already centralized</p>
+    <p><a href="https://www.gawker.com/culture/the-future-is-useless-expensive" target="_blank">The Future Is Not Only Useless, It’s Expensive</a> by Dan Brooks — "NFTs are the human capacity for visual expression as understood by the guy at the vape store."</p>
+    <p>
+      <a href="https://everestpipkin.medium.com/but-the-environmental-issues-with-cryptoart-1128ef72e6a3" target="_blank">HERE IS THE ARTICLE YOU CAN SEND TO PEOPLE WHEN THEY SAY “BUT THE ENVIRONMENTAL ISSUES WITH CRYPTOART WILL BE SOLVED SOON, RIGHT?”</a> by Everest Pipkin
+    </p>
+    <p>
+    <a href="https://twitter.com/CoinersTakingLs" target="_blank">Crypto Bros Taking Ls</a> — good memes
+    </p>
+    
+  </div>
+  
+  </body>
+</html>
