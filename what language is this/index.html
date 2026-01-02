@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>guess the language</title>
+  <style>
+    body {
+      font-family: serif;
+      max-width: 600px;
+      margin: 2rem auto;
+      text-align: center;
+    }
+    audio {
+      margin: 1rem 0;
+    }
+    button {
+      display: block;
+      width: 100%;
+      padding: 0.75rem;
+      margin: 0.5rem 0;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    .correct {
+      background-color: #c8e6c9;
+    }
+    .incorrect {
+      background-color: #ffcdd2;
+    }
+  </style>
+</head>
+<body>
+  <h1>guess the language</h1>
+  <div id="game"></div>
+
+  <script>
+    const rounds = [
+      {
+        file: "Easy Mandarin 1 - What are you doing today？.mp3",
+        answer: "Chinese",
+        options: ["Chinese", "Japanese", "Korean", "Thai", "Vietnamese"]
+      },
+      {
+        file: "Getting to know people in the streets ｜ Easy German 4.mp3",
+        answer: "German",
+        options: ["German", "Dutch", "Swedish", "Norwegian", "Danish"]
+      },
+      {
+        file: "Italian Small Talk： Perfect Questions to Ask Your Friends ｜ Easy Italian 200.mp3",
+        answer: "Italian",
+        options: ["Italian", "Spanish", "French", "Portuguese", "Romanian"]
+      },
+      {
+        file: "Trancoso ｜ Easy Brazilian Portuguese 47.mp3",
+        answer: "Portuguese",
+        options: ["Portuguese", "Spanish", "Italian", "French", "Romanian"]
+      },
+      {
+        file: "Typical Palestinian Food ｜ Easy Palestinian Arabic 1.mp3",
+        answer: "Arabic",
+        options: ["Arabic", "Hebrew", "Persian", "Turkish", "Urdu"]
+      },
+      {
+        file: "We Asked Egyptians What They Were Doing! ｜ Easy Egyptian Arabic 36.mp3",
+        answer: "Arabic",
+        options: ["Arabic", "Persian", "Hebrew", "Turkish", "French"]
+      },
+      {
+        file: "What Are You Doing Today？ ｜ Easy Russian 53.mp3",
+        answer: "Russian",
+        options: ["Russian", "Ukrainian", "Polish", "Serbian", "Bulgarian"]
+      },
+      {
+        file: "What Do Latinos Eat ｜ Street Interview ｜ Advanced Spanish.mp3",
+        answer: "Spanish",
+        options: ["Spanish", "Portuguese", "Italian", "French", "Romanian"]
+      },
+      {
+        file: "What Parisians like and dislike about Paris？ ｜ Easy French 77.mp3",
+        answer: "French",
+        options: ["French", "Italian", "Spanish", "Portuguese", "Romanian"]
+      },
+      {
+        file: "【N5-N4】Easy Japanese interview - Morning routine (Japanese listening practice).mp3",
+        answer: "Japanese",
+        options: ["Japanese", "Korean", "Chinese", "Vietnamese", "Mongolian"]
+      },
+    ];
+
+    let current = 0;
+let correctCount = 0;
+const mistakes = []; // {correct: 'Chinese', guessed: 'Japanese'}
+
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+function loadRound() {
+  const round = rounds[current];
+  const container = document.getElementById("game");
+
+  const shuffledOptions = shuffle([...round.options]);
+
+  container.innerHTML = `
+    <h2>round ${current + 1} of ${rounds.length}</h2>
+    <audio controls src="${round.file}" autoplay></audio>
+    ${shuffledOptions
+      .map(
+        (opt) =>
+          `<button onclick="checkAnswer(this, '${opt}', '${round.answer}')">${opt}</button>`
+      )
+      .join("")}
+  `;
+}
+
+function checkAnswer(button, selected, correct) {
+  const buttons = document.querySelectorAll("button");
+  buttons.forEach((btn) => (btn.disabled = true));
+
+  if (selected === correct) {
+    button.classList.add("correct");
+    correctCount++;
+  } else {
+    button.classList.add("incorrect");
+    buttons.forEach((btn) => {
+      if (btn.textContent === correct) btn.classList.add("correct");
+    });
+    mistakes.push({ correct, guessed: selected });
+  }
+
+  setTimeout(() => {
+    current++;
+    if (current < rounds.length) {
+      loadRound();
+    } else {
+      showRecap();
+    }
+  }, 2000);
+}
+
+function showRecap() {
+  const container = document.getElementById("game");
+
+  let recapHtml = `<h2>🎉 Game Over!</h2>`;
+  recapHtml += `<p>You got <strong>${correctCount} correct answers</strong> out of ${rounds.length}.</p>`;
+
+  if (mistakes.length > 0) {
+    recapHtml += `<h3>Here are your mistakes:</h3><ul>`;
+    mistakes.forEach(({ correct, guessed }) => {
+      recapHtml += `<li>You mistook <strong>${correct}</strong> for <strong>${guessed}</strong></li>`;
+    });
+    recapHtml += `</ul>`;
+  } else {
+    recapHtml += `<p>Perfect score! 🎉</p>`;
+  }
+
+  container.innerHTML = recapHtml;
+}
+
+
+    function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+// Shuffle rounds once at the start:
+shuffle(rounds);
+
+loadRound();
+  </script>
+</body>
+</html>
