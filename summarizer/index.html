@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUMMARIZER - One Word Summary</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        textarea {
+            width: 100%;
+            height: 150px;
+            margin: 15px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .or-divider {
+            margin: 20px 0;
+            position: relative;
+        }
+        .or-divider::before {
+            content: "OR";
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            padding: 0 10px;
+            color: #888;
+        }
+        .or-divider hr {
+            border: none;
+            border-top: 1px solid #ddd;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        #result-container {
+            margin-top: 30px;
+            min-height: 36px;
+        }
+        #processing {
+            display: none; /* Hidden by default */
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        #summary {
+            display: none; /* Hidden by default */
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .file-wrapper {
+            margin: 15px 0;
+        }
+        @keyframes dots {
+            0%, 20% {
+                content: ".";
+            }
+            40% {
+                content: "..";
+            }
+            60%, 100% {
+                content: "...";
+            }
+        }
+        .dot-animation::after {
+            content: "";
+            animation: dots 1.5s infinite;
+        }
+    </style>
+</head>
+<body>
+    <h1>SUMMARIZER</h1>
+    <p>Summarize anything in exactly one word</p>
+    
+    <div>
+        <textarea id="text-input" placeholder="Paste your text here to summarize..."></textarea>
+    </div>
+    
+    <div class="or-divider">
+        <hr>
+    </div>
+    
+    <div class="file-wrapper">
+        <input type="file" id="file-input" accept=".txt,.doc,.docx,.pdf">
+        <p><small>Supported formats: .txt, .doc, .docx, .pdf</small></p>
+    </div>
+    
+    <button id="summarize-btn">SUMMARIZE NOW</button>
+    
+    <div id="result-container">
+        <div id="processing">
+            <span>Analyzing</span>
+            <span class="dot-animation"></span>
+        </div>
+        <div id="summary"></div>
+    </div>
+    
+    <script>
+        // Array of nonsensical words
+        const nonsensicalWords = ["XIJALEMENDO", "PLONK", "ZAZZLE", "SQUONK", "BINGLE", 
+    "WOOSH", "KERFLE", "ZWIBBLE", "SPLUNGE", "THWACK", 
+    "QUORPLE", "FLUMPH", "ZINGLE", "BONK", "WHIFFLE", 
+    "CRUNCH", "SPAZZLE", "GLORP", "TWIZZLE", "PLIMPT", 
+    "SNORGLE", "SPORK", "KAZOO", "WOBBLE"];
+        
+        // DOM elements
+        const textInput = document.getElementById('text-input');
+        const fileInput = document.getElementById('file-input');
+        const summarizeBtn = document.getElementById('summarize-btn');
+        const processingDiv = document.getElementById('processing');
+        const summaryDiv = document.getElementById('summary');
+        
+        // Function to get random word from the array
+        function getRandomWord() {
+            const randomIndex = Math.floor(Math.random() * nonsensicalWords.length);
+            return nonsensicalWords[randomIndex];
+        }
+        
+        // Function to get random processing time (3-6 seconds)
+        function getRandomProcessingTime() {
+            return Math.floor(Math.random() * 3000) + 3000; // 3000-6000 milliseconds
+        }
+        
+        // Handle summarize button click
+        summarizeBtn.addEventListener('click', function() {
+            // Check if text or file has been provided
+            if (textInput.value.trim() || fileInput.files.length > 0) {
+                // Disable the button during processing
+                summarizeBtn.disabled = true;
+                
+                // Hide any previous summary
+                summaryDiv.style.display = 'none';
+                
+                // Show processing animation
+                processingDiv.style.display = 'flex';
+                
+                // Set random processing time
+                const processingTime = getRandomProcessingTime();
+                
+                // After the random processing time, show the result
+                setTimeout(() => {
+                    // Hide processing animation
+                    processingDiv.style.display = 'none';
+                    
+                    // Get random summary word
+                    const summary = getRandomWord();
+                    
+                    // Display the summary
+                    summaryDiv.textContent = summary;
+                    summaryDiv.style.display = 'block';
+                    
+                    // Re-enable the button
+                    summarizeBtn.disabled = false;
+                }, processingTime);
+            } else {
+                alert('Please enter text or upload a file to summarize.');
+            }
+        });
+        
+        // Handle file input
+        fileInput.addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                // For this prototype, we'll just acknowledge the file was uploaded
+                // In a real app, you'd process the file content
+                textInput.value = `File "${file.name}" selected. Click SUMMARIZE to process.`;
+            }
+        });
+    </script>
+</body>
+</html>
