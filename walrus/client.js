@@ -33,7 +33,7 @@ $(function() {
   "https://cdn.gomix.com/c9bbbff7-3854-4534-a80a-713779d25616%2F17.jpg"
   ])*/
   
-  walruses = RandomizeArray(["http://eugenekudashev.com/walrus/1__compressed.jpg",
+  walruses = RandomizeArray(["./1__compressed.jpg",
 "http://eugenekudashev.com/walrus/2.jpg",
 "http://eugenekudashev.com/walrus/3__compressed.jpg",
 "http://eugenekudashev.com/walrus/4__compressed.jpg",
