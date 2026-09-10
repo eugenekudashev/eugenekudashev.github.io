@@ -33,23 +33,23 @@ $(function() {
   "https://cdn.gomix.com/c9bbbff7-3854-4534-a80a-713779d25616%2F17.jpg"
   ])*/
   
-  walruses = RandomizeArray(["./1__compressed.jpg",
-"http://eugenekudashev.com/walrus/2.jpg",
-"http://eugenekudashev.com/walrus/3__compressed.jpg",
-"http://eugenekudashev.com/walrus/4__compressed.jpg",
-"http://eugenekudashev.com/walrus/5.jpg",
-"http://eugenekudashev.com/walrus/6__compressed.jpg",
-"http://eugenekudashev.com/walrus/7__compressed.jpg",
-"http://eugenekudashev.com/walrus/8__compressed.jpg",
-"http://eugenekudashev.com/walrus/9__compressed.jpg",
-"http://eugenekudashev.com/walrus/10__compressed.jpg",
-"http://eugenekudashev.com/walrus/11__compressed.jpg",
-"http://eugenekudashev.com/walrus/12__compressed.jpg",
-"http://eugenekudashev.com/walrus/13__compressed.jpg",
-"http://eugenekudashev.com/walrus/14__compressed.jpg",
-"http://eugenekudashev.com/walrus/15__compressed.jpg",
-"http://eugenekudashev.com/walrus/16.jpg",
-"http://eugenekudashev.com/walrus/17__compressed.jpg"])
+    walruses = RandomizeArray(["./1__compressed.jpg",
+"./2.jpg",
+"./3__compressed.jpg",
+"./4__compressed.jpg",
+"./5.jpg",
+"./6__compressed.jpg",
+"./7__compressed.jpg",
+"./8__compressed.jpg",
+"./9__compressed.jpg",
+"./10__compressed.jpg",
+"./11__compressed.jpg",
+"./12__compressed.jpg",
+"./13__compressed.jpg",
+"./14__compressed.jpg",
+"./15__compressed.jpg",
+"./16.jpg",
+"./17__compressed.jpg"])
   
   lines = RandomizeArray([
     "i also used to work for a startup",
